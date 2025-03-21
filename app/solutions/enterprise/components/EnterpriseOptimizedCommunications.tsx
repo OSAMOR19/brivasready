@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Shoe1 from "@/components/Images/pics/shoe1.svg"
+import Shoe2 from "@/components/Images/pics/shoe2.svg"
 
 const EnterpriseOptimizedCommunications = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -56,7 +58,7 @@ const EnterpriseOptimizedCommunications = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Link 
-              href="#" 
+              href="brivas.io/login" 
               className="bg-[#40196D] text-white px-8 py-3 rounded-full font-medium hover:bg-[#351458] transition-colors"
             >
               Read more
@@ -65,7 +67,7 @@ const EnterpriseOptimizedCommunications = () => {
         </motion.div>
         
         {/* Images section */}
-        <div className="flex flex-col md:flex-row gap-6 justify-center">
+        <div className="flex flex-col md:flex-row gap-1 justify-center">
           {/* Left image */}
           <motion.div 
             className="w-full md:w-1/3 rounded-3xl overflow-hidden"
@@ -74,27 +76,27 @@ const EnterpriseOptimizedCommunications = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
           >
             <Image
-              src="https://placehold.co/600x600?text=Snowboarder+View&bg=87CEEB&fg=ffffff"
-              alt="Snowboarder view from below"
+              src={Shoe1}
+              alt="Shoe illustration 1"
               width={600}
               height={600}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain p-8"
             />
           </motion.div>
           
           {/* Right image */}
           <motion.div 
-            className="w-full md:w-1/3 rounded-3xl overflow-hidden"
+            className="w-full md:w-1/3 rounded-3xl overflow-hidden "
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 50 }}
             transition={{ duration: 0.7, delay: 0.5 }}
           >
             <Image
-              src="https://placehold.co/600x600?text=Athletic+Shoe&bg=f5f5f5&fg=333333"
-              alt="Athletic shoe"
+              src={Shoe2}
+              alt="Shoe illustration 2"
               width={600}
               height={600}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain p-8"
             />
           </motion.div>
         </div>
@@ -103,4 +105,4 @@ const EnterpriseOptimizedCommunications = () => {
   );
 };
 
-export default EnterpriseOptimizedCommunications; 
+export default EnterpriseOptimizedCommunications;

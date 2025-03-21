@@ -1,7 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-
+import focus from "@/components/Images/pics/whyenterprise.svg"
+import Image from 'next/image';
 const EnterpriseCTASection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -59,7 +60,7 @@ const EnterpriseCTASection = () => {
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-3xl text-[#40196D] font-bold mb-4">
+          <h2 className="text-4xl text-black font-bold mb-4">
             Why Enterprises Choose <span className="text-[#40196D]">BRIVAS</span>
           </h2>
           <p className="text-gray-600">
@@ -68,40 +69,22 @@ const EnterpriseCTASection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left side - Placeholder Illustration */}
+          {/* Left side - Illustration */}
           <motion.div 
             className="relative"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -50 }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            <div className="aspect-square bg-gray-100 rounded-2xl flex items-center justify-center">
-              {/* Placeholder for illustration */}
-              <div className="text-gray-400 text-center p-8">
-                <motion.svg 
-                  className="w-32 h-32 mx-auto mb-4" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: isVisible ? 1 : 0.8, opacity: isVisible ? 1 : 0 }}
-                  transition={{ duration: 0.7, delay: 0.5 }}
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth="2" 
-                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </motion.svg>
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: isVisible ? 1 : 0 }}
-                  transition={{ duration: 0.7, delay: 0.7 }}
-                >
-                  Illustration Placeholder
-                </motion.p>
-              </div>
+            <div className="aspect-square rounded-2xl flex items-center justify-center">
+              <Image
+                src={focus}
+                alt="Enterprise focus illustration"
+                width={500}
+                height={500}
+                className="object-contain p-8"
+                priority
+              />
             </div>
           </motion.div>
 
@@ -142,4 +125,4 @@ const EnterpriseCTASection = () => {
   );
 };
 
-export default EnterpriseCTASection; 
+export default EnterpriseCTASection;

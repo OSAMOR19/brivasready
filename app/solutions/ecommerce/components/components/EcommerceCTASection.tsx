@@ -1,6 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import man from "@/components/Images/pics/manwork.svg"
 
 const EcommerceCTASection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -50,7 +52,7 @@ const EcommerceCTASection = () => {
   ];
 
   return (
-    <div id="ecommerce-cta" className="py-16 px-4">
+    <div id="ecommerce-cta" className="py-16 bg-grey-100 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div 
@@ -59,8 +61,8 @@ const EcommerceCTASection = () => {
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-3xl text-black font-bold mb-4">
-            Why E-Commerce Businesses Choose <span className="text-[#40196D]">BRIVAS</span>
+          <h2 className="text-3xl text-black font-semibold mb-4">
+            Why <span className='text-[#40196D]'>E-Commerce</span> Businesses Choose <span className="text-[#40196D]">BRIVAS</span>
           </h2>
           <p className="text-gray-600">
             Our USSD Pull platform integrates effortlessly with your existing systems and workflows, providing complete customization of menus and services.
@@ -76,29 +78,21 @@ const EcommerceCTASection = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <motion.div 
-              className="aspect-square bg-gray-100 rounded-2xl flex items-center justify-center"
+              className="aspect-square rounded-2xl flex items-center justify-center"
               whileHover={{ 
                 scale: 1.03,
-                boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
               }}
               transition={{ duration: 0.3 }}
             >
-              {/* Placeholder for illustration */}
-              <div className="text-gray-400 text-center p-8">
-                <svg 
-                  className="w-32 h-32 mx-auto mb-4" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth="2" 
-                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-                <p>Illustration Placeholder</p>
+              <div className=" text-center p-8">
+              <Image
+                src={man}
+                alt="E-commerce mobile app mockup"
+                width={489}
+                height={686}
+                className="object-contain"
+                priority
+              />
               </div>
             </motion.div>
           </motion.div>

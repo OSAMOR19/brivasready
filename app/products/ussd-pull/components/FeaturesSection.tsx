@@ -1,120 +1,167 @@
 'use client';
-import { useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+import Startimg from "@/components/Images/pics/ussdpullimg.svg"
 
-// Please provide the correct path to your images
-// For example, if they're in the public folder:
-// const img1Path = '/images/img1.svg';
-// const img2Path = '/images/img2.svg';
+const BenefitsSection = () => {
+  const [openBenefit, setOpenBenefit] = useState('Affordable Pricing');
+  const [isVisible, setIsVisible] = useState(false);
 
-const FeaturesSection = () => {
-  const [openFeature, setOpenFeature] = useState('Offline Access');
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const element = document.getElementById('startup-benefits-section');
+      
+      if (element) {
+        const elementPosition = element.getBoundingClientRect().top + scrollPosition;
+        if (scrollPosition > elementPosition - windowHeight * 0.8) {
+          setIsVisible(true);
+        }
+      }
+    };
 
-  const features = [
+    window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const benefits = [
     {
-      title: "Offline Access",
+      title: "Offline Access ",
       content: "USSD works over GSM networks, making your services available even when users have no internet access."
     },
     {
       title: "Instant Connectivity",
-      content: "Connect users to your services instantly through USSD channels."
+      content: "Provide real-time access to critical services, allowing users to retrieve information instantly."
     },
     {
-      title: "Cost-Efficient",
-      content: "Reduce operational costs with our efficient USSD solutions."
+      title: "Cost-Efficient ",
+      content: "Reduce operational costs by enabling users to interact with your services through low-cost USSD channels."
     },
     {
       title: "Flexible Menus",
-      content: "Create and customize USSD menus according to your needs."
+      content: "Design dynamic and multi-level USSD menus tailored to your business needs."
     },
     {
       title: "Scalable Platform",
-      content: "Scale your USSD services as your business grows."
+      content: "Support a large number of simultaneous users, ensuring scalability for your growing service demands."
     },
     {
       title: "Quick Deployment",
-      content: "Deploy your USSD services rapidly with minimal setup time."
-    },
-    {
-      title: "No App Required",
-      content: "Users can access your services without installing any applications."
+      content: "Support a large number of simultaneous users, ensuring scalability for your growing service demands."
     }
   ];
 
   return (
-    <div className="py-16 px-4">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-        {/* Left Column - Features Accordion */}
-        <div className="space-y-4">
-          {features.map((feature) => (
-            <div 
-              key={feature.title}
-              className="border rounded-xl overflow-hidden bg-white"
-            >
-              <button
-                onClick={() => setOpenFeature(openFeature === feature.title ? '' : feature.title)}
-                className="w-full p-4 flex justify-between items-center text-left hover:bg-gray-50"
+    <div id="startup-benefits-section" className="pt-20 pb-20 mt-20 px-4 max-w-6xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-12 items-start">
+        {/* Left Column - Benefits Accordion */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -30 }}
+          transition={{ duration: 0.7 }}
+        >
+          <div className="space-y-4">
+            {benefits.map((benefit, index) => (
+              <motion.div 
+                key={benefit.title}
+                className="border border-gray-200 rounded-2xl overflow-hidden bg-white"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
               >
-                <span className="font-medium">{feature.title}</span>
-                {openFeature === feature.title ? (
-                  <Minus className="h-5 w-5 text-gray-400" />
-                ) : (
-                  <Plus className="h-5 w-5 text-gray-400" />
-                )}
-              </button>
-              {openFeature === feature.title && (
-                <div className="p-4 bg-gray-50 border-t">
-                  <p className="text-gray-600">{feature.content}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+                <motion.button
+                  onClick={() => setOpenBenefit(openBenefit === benefit.title ? '' : benefit.title)}
+                  className="w-full p-5 flex justify-between items-center text-left"
+                  whileHover={{ backgroundColor: "rgba(64, 25, 109, 0.05)" }}
+                >
+                  <span className="font-medium text-gray-800 text-lg">{benefit.title}</span>
+                  <motion.span 
+                    className="text-gray-400 text-2xl"
+                    animate={{ rotate: openBenefit === benefit.title ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {openBenefit === benefit.title ? "—" : "+"}
+                  </motion.span>
+                </motion.button>
+                <AnimatePresence>
+                  {openBenefit === benefit.title && (
+                    <motion.div 
+                      className="px-5 pb-5"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <p className="text-gray-600">{benefit.content}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Right Column - Content and Images */}
-        <div className="space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold">
-              Reliable and Instant Access to Services via USSD
-            </h2>
-            <p className="text-gray-600">
-              With BRIVAS USSD Pull, users can retrieve information and engage with services directly from their mobile phones, without the need for data or an internet connection. Ideal for markets with low internet penetration or for services that need to be accessible at all times.
-            </p>
-            <button className="bg-[#40196D] text-white px-6 py-3 rounded-full hover:bg-[#351458] transition-colors">
-              Start for free
-            </button>
-          </div>
+        <motion.div 
+          className="space-y-6"
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 30 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+        >
+          <div>
+          <motion.h2 
+              className="text-5xl text-black font-bold mb-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+            >
+             Reliable and Instant Access to Services via USSD
+            </motion.h2>
 
-          {/* Images Container */}
-          <div className="relative h-[300px]">
-            {/* First Image */}
-            <div className="absolute left-0 bottom-0 w-2/3 h-[250px] bg-gray-100 rounded-lg overflow-hidden">
-              {/* Replace with your actual image path */}
-              <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                <span className="text-gray-500">Image 1</span>
-              </div>
-            </div>
-            
-            {/* Second Image - Overlapping */}
-            <div className="absolute right-0 top-0 w-1/2 h-[200px] bg-gray-100 rounded-lg overflow-hidden shadow-lg">
-              <div className="relative w-full h-full">
-                {/* Replace with your actual image path */}
-                <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                  <span className="text-gray-500">Image 2</span>
-                </div>
-                <div className="absolute inset-0 bg-black bg-opacity-30" />
-                <div className="absolute bottom-4 left-4 text-white">
-                  <p className="font-medium mb-1">Conducive E-learning Environment</p>
-                  <p className="text-sm">Stay focused wherever</p>
-                </div>
-              </div>
-            </div>
+            <motion.p 
+              className="text-gray-600 mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+            >
+              With BRIVAS USSD Pull, users can retrieve information and engage with services directly from their mobile phones, without the need for data or an internet connection. Ideal for markets with low internet penetration or for services that need to be accessible at all times.
+            </motion.p>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <button className="bg-[#40196D] text-white px-8 py-3 rounded-full font-medium hover:bg-[#40196D] transition-colors">
+                Start for free
+              </button>
+            </motion.div>
+           
           </div>
-        </div>
+          <motion.div 
+            className="relative h-[400px] w-[400px] mx-auto pt-40 my-10 flex items-center justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.9 }}
+            transition={{ duration: 0.7, delay: 0.7 }}
+          >            
+              <Image
+                src={Startimg}
+                alt="BRIVAS for startups"
+                width={350}
+                height={350}
+                className="object-contain"
+                priority
+              />        
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );
 };
 
-export default FeaturesSection; 
+export default BenefitsSection;

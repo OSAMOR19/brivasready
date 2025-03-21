@@ -1,75 +1,67 @@
-'use client';
-import { useState } from 'react';
-import Image from 'next/image';
+import Image from "next/image";
+import correct from "@/components/Images/pics/collaborate.svg"
 
-const FeaturesSection = () => {
-  const [openFeature, setOpenFeature] = useState('Customer Notifications');
-
-  const features = [
+const SMSOTPProcessSection = () => {
+  const steps = [
     {
-      title: "Customer Notifications",
-      content: "Send instant updates about new features, offers, or promotions directly to your users via SMS."
+      id: "generate",
+      title: "Class Updates",
+      description: "Notify students about schedule changes, class cancellations, or assignment deadlines in real-time."
     },
     {
-      title: "User Verification",
-      content: "Verify user identities securely through SMS OTP, Flash Calls, or other authentication methods to prevent fraud and ensure security."
+      id: "send",
+      title: "Event Notifications",
+      description: "Keep students and parents informed about school events, parent-teacher meetings, and extracurricular activities."
     },
     {
-      title: "Service Accessibility",
-      content: "Make your services accessible to all users regardless of internet connectivity through USSD and SMS channels."
+      id: "enter",
+      title: "Fee Reminders",
+      description: "Send automated reminders to parents and students for upcoming fee payments, reducing late submissions."
+    },
+    {
+      id: "verify",
+      title: "Exam Schedules",
+      description: "Share exam timetables and results promptly, ensuring students are always prepared."
+    },
+    {
+      id: "secure",
+      title: "Online Learning Support",
+      description: "Enable secure access to e-learning platforms with SMS OTP verification for a seamless digital learning experience."
     }
   ];
 
   return (
-    <div className="py-16 px-4 max-w-6xl mx-auto">
-      {/* Header */}
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4">Grow Fast, Stay Lean</h2>
-        <p className="text-gray-600 max-w-3xl mx-auto">
-          With BRIVAS, you can focus on building your product and leave communication infrastructure to us. 
-          Whether you're a SaaS startup, an e-commerce platform, or a fintech innovator, our tools provide you with 
-          the messaging, verification, and USSD services needed to engage customers and scale efficiently.
-        </p>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-12 items-start">
-        {/* Left Column - Illustration */}
-        <div className="flex justify-center">
-          <div className="relative w-full max-w-md h-[350px]">
-            <Image
-              src="/images/startup-illustration.svg" // Replace with your actual image path
-              alt="Startup team working"
+    <div className="mb-20 p-40">
+      <h3 className="text-xl font-semibold text-[#40196D] mb-8 border-b border-gray-200 pb-2">Features</h3>
+      
+      <div className="flex flex-col md:flex-row items-start gap-12">
+        <div className="md:w-1/2">
+          <div className="space-y-6">
+            {steps.map((step, index) => (
+              <div key={step.id} className="flex items-start gap-4">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="w-5 h-5 rounded-full border border-[#B891E5] flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full "></div>
+                  </div>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-base text-black">{step.title}</h4>
+                  <p className="text-gray-700">{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div className="md:w-1/2">
+          <div className="relative mt-9 h-[400px] w-full">
+            <Image 
+              src={correct}
+              alt="SMS OTP Process Illustration" 
               fill
               className="object-contain"
             />
-          </div>
-        </div>
-
-        {/* Right Column - Features Accordion */}
-        <div>
-          <h3 className="text-xl font-bold text-[#40196D] mb-6">Features</h3>
-          <div className="space-y-4">
-            {features.map((feature) => (
-              <div 
-                key={feature.title}
-                className="border border-gray-200 rounded-2xl overflow-hidden bg-white"
-              >
-                <button
-                  onClick={() => setOpenFeature(openFeature === feature.title ? '' : feature.title)}
-                  className="w-full p-5 flex justify-between items-center text-left"
-                >
-                  <span className="font-medium text-gray-800 text-lg">{feature.title}</span>
-                  <span className="text-gray-400 text-2xl">
-                    {openFeature === feature.title ? "—" : "+"}
-                  </span>
-                </button>
-                {openFeature === feature.title && (
-                  <div className="px-5 pb-5">
-                    <p className="text-gray-600">{feature.content}</p>
-                  </div>
-                )}
-              </div>
-            ))}
+            {/* Replace with your actual illustration of the SMS OTP process */}
           </div>
         </div>
       </div>
@@ -77,4 +69,4 @@ const FeaturesSection = () => {
   );
 };
 
-export default FeaturesSection; 
+export default SMSOTPProcessSection; 

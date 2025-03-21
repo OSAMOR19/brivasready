@@ -1,6 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import cofee from "@/components/Images/pics/womancoffee.svg"
+import Image from "next/image"
 
 const EcommerceSolutionsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,24 +30,24 @@ const EcommerceSolutionsSection = () => {
 
   const features = [
     {
-      title: "Custom USSD Codes",
-      description: "Set up branded USSD shortcodes that users can easily remember."
+      title: "Order Updates:",
+      description: "Keep customers informed about their orders, from confirmation to delivery, with real-time SMS notifications."
     },
     {
-      title: "Dynamic Menus",
-      description: "Design and deploy flexible USSD menus tailored to specific user flows and use cases."
+      title: "Promotions ",
+      description: "Run effective marketing campaigns with Bulk SMS, reaching your target audience with offers and discounts."
     },
     {
-      title: "API Access",
-      description: "Integrate with your backend using BRIVAS's robust API for smooth data retrieval and processing."
+      title: "Customer Support",
+      description: "Use SMS for quick customer queries and support, ensuring a smooth shopping experience."
     },
     {
-      title: "Real-Time Updates",
-      description: "Update USSD menus and services in real-time, keeping your offerings relevant."
+      title: "Secure Transactions",
+      description: "Leverage SMS OTP for payment and login verifications, ensuring secure and trustworthy transactions."
     },
     {
-      title: "User Tracking",
-      description: "Monitor how users interact with your USSD service, providing valuable insights into their behaviour."
+      title: "Loyalty Programs",
+      description: "Send reminders and updates about loyalty rewards, ensuring customers stay engaged with your brand."
     }
   ];
 
@@ -76,29 +78,23 @@ const EcommerceSolutionsSection = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <motion.div 
-              className="aspect-square bg-gray-100 rounded-2xl flex items-center justify-center"
+              className="aspect-square rounded-2xl flex items-center justify-center"
               whileHover={{ 
                 scale: 1.03,
-                boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
               }}
               transition={{ duration: 0.3 }}
             >
               {/* Placeholder for illustration */}
               <div className="text-gray-400 text-center p-8">
-                <svg 
-                  className="w-32 h-32 mx-auto mb-4" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth="2" 
-                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-                <p>Illustration Placeholder</p>
+                
+              <Image
+                src={cofee}
+                alt="E-commerce mobile app mockup"
+                width={350}
+                height={700}
+                className="object-contain"
+                priority
+              />
               </div>
             </motion.div>
           </motion.div>

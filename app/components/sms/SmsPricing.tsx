@@ -1,7 +1,7 @@
 import Image from "next/image";
 import img1 from "@/components/Images/pics/reseller1.svg";
-import img2 from "@/components/Images/pics/reseller2.svg";
-import img3 from "@/components/Images/pics/reseller3.svg";
+import img2 from "@/components/Images/pics/personalise1.svg";
+import img3 from "@/components/Images/pics/personalise2.svg";
 
 const customizationOptions = [
   {
@@ -24,12 +24,12 @@ const customizationOptions = [
 export default function ResellerCustomization() {
   return (
     <div className="mb-20 text-center">
-      <h1 className="text-3xl font-bold text-black mb-4">
+      <h1 className="text-4xl font-bold text-black mb-4">
         Personalize Your Reseller Platform
       </h1>
-      <p className="text-xl text-black mb-12 max-w-3xl mx-auto">
+      <h6 className="text-xl text-black mb-12 max-w-1xl mx-auto">
         Set up a professional reseller platform with your branding, including a custom domain and logo.
-      </p>
+      </h6>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {customizationOptions.map((option, index) => (
           <div key={index} className="bg-white text-start text-black shadow-md rounded-2xl overflow-hidden">

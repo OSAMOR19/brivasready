@@ -1,121 +1,167 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+import Startimg from "@/components/Images/pics/nonprofdonate.svg"
 
 const BenefitsSection = () => {
   const [openBenefit, setOpenBenefit] = useState('Affordable Pricing');
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const element = document.getElementById('startup-benefits-section');
+      
+      if (element) {
+        const elementPosition = element.getBoundingClientRect().top + scrollPosition;
+        if (scrollPosition > elementPosition - windowHeight * 0.8) {
+          setIsVisible(true);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const benefits = [
     {
-      title: "Affordable Pricing",
-      content: "Access enterprise-level services at startup-friendly prices. With BRIVAS, you get powerful tools without the heavy financial burden."
+      title: "Affordable Communication  ",
+      content: "Keep costs low while reaching large audiences with our affordable Bulk SMS services, ensuring you can communicate with supporters without overspending."
     },
     {
-      title: "Rapid Scalability",
-      content: "Scale your communication infrastructure as your business grows, without worrying about technical limitations or service disruptions."
+      title: " Volunteer Coordination ",
+      content: "Easily manage and inform volunteers using SMS for event updates, schedules, and important information, ensuring smooth coordination."
     },
     {
-      title: "Easy Integration",
-      content: "Integrate our APIs seamlessly with your existing systems and workflows with minimal development effort."
+      title: "Donor Engagement",
+      content: "Keep your donors informed and engaged with regular updates, fundraising campaigns, and impact reports, delivered straight to their mobile devices."
     },
     {
-      title: "Pay-As-You-Grow",
-      content: "Only pay for what you use with our flexible pricing models that adapt to your business needs and usage patterns."
+      title: "Secure Communication",
+      content: "Ensure secure communications using our SMS OTP and Flash Call services for volunteer registration, donation verification, and member logins."
     },
     {
       title: "Global Reach",
-      content: "Connect with customers worldwide through our global network, ensuring reliable delivery across borders."
+      content: "Connect with communities and supporters globally with BRIVAS's scalable and reliable messaging services, no matter where they are located."
     },
     {
-      title: "Reliable Infrastructure",
-      content: "Built on robust infrastructure with high availability and redundancy to ensure your communications never fail."
+      title: "Easy Integration",
+      content: "Our API and platform are designed for easy integration, allowing non-profits to set up communication systems without technical complexities."
     }
   ];
 
   return (
-    <div className="py-16 px-4 max-w-6xl mx-auto">
+    <div id="startup-benefits-section" className="pt-20 pb-20 mt-20 px-4 max-w-6xl mx-auto">
       <div className="grid md:grid-cols-2 gap-12 items-start">
         {/* Left Column - Benefits Accordion */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -30 }}
+          transition={{ duration: 0.7 }}
+        >
           <div className="space-y-4">
-            {benefits.map((benefit) => (
-              <div 
+            {benefits.map((benefit, index) => (
+              <motion.div 
                 key={benefit.title}
                 className="border border-gray-200 rounded-2xl overflow-hidden bg-white"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
               >
-                <button
+                <motion.button
                   onClick={() => setOpenBenefit(openBenefit === benefit.title ? '' : benefit.title)}
                   className="w-full p-5 flex justify-between items-center text-left"
+                  whileHover={{ backgroundColor: "rgba(64, 25, 109, 0.05)" }}
                 >
                   <span className="font-medium text-gray-800 text-lg">{benefit.title}</span>
-                  <span className="text-gray-400 text-2xl">
+                  <motion.span 
+                    className="text-gray-400 text-2xl"
+                    animate={{ rotate: openBenefit === benefit.title ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     {openBenefit === benefit.title ? "—" : "+"}
-                  </span>
-                </button>
-                {openBenefit === benefit.title && (
-                  <div className="px-5 pb-5">
-                    <p className="text-gray-600">{benefit.content}</p>
-                  </div>
-                )}
-              </div>
+                  </motion.span>
+                </motion.button>
+                <AnimatePresence>
+                  {openBenefit === benefit.title && (
+                    <motion.div 
+                      className="px-5 pb-5"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <p className="text-gray-600">{benefit.content}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Column - Content and Images */}
-        <div className="space-y-6">
+        <motion.div 
+          className="space-y-6"
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 30 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+        >
           <div>
-            <h2 className="text-4xl text-black font-bold mb-4">
-            BRIVAS for Non-Profits: Amplify Your Mission
-            </h2>
-            <p className="text-gray-600 mb-6">
-            At BRIVAS, we understand the importance of seamless communication in furthering the goals of non-profits. Our solutions are designed to help you reach your audience, raise awareness, and coordinate your efforts, all while staying within budget.
-            </p>
-            <button className="bg-[#40196D] text-white px-6 py-3 rounded-full hover:bg-[#9B1B1B] transition-colors">
-              Start for free
-            </button>
-          </div>
+          <motion.h2 
+              className="text-4xl text-black font-bold mb-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+            >
+           BRIVAS for Non-Profits:<br/>Amplify Your Mission 
+            </motion.h2>
 
-          {/* Images Container */}
-          <div className="relative h-[300px] mt-12">
-            {/* Main Image */}
-            <div className="absolute left-0 bottom-0 w-3/4 h-[200px] bg-gray-200 rounded-lg overflow-hidden">
-              <Image
-                src="/images/fuel-image-1.jpg" // Update with your actual image path
-                alt="BRIVAS for startups"
-                fill
-                className="object-cover"
-              />
-            </div>
-            
-            {/* Overlapping Image */}
-            <div className="absolute right-0 top-0 w-1/2 h-[200px] bg-gray-300 rounded-lg overflow-hidden shadow-lg">
-              <div className="relative w-full h-full">
-                <Image
-                  src="/images/fuel-image-2.jpg" // Update with your actual image path
-                  alt="E-learning Environment"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-30" />
-                <div className="absolute inset-0 flex flex-col justify-between p-4 text-white">
-                  <div>
-                    <p className="font-medium">Conducive E-learning Environment</p>
-                  </div>
-                  <div className="flex justify-between items-end">
-                    <p className="text-sm">Stay focused wherever</p>
-                    <button className="bg-white text-[#40196D] px-4 py-1 rounded-full text-xs">
-                      Start for free
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <motion.p 
+              className="text-gray-600 mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+            >
+              At BRIVAS, we understand the importance of seamless communication in furthering the goals of non-profits. Our solutions are designed to help you reach your audience, raise awareness, and coordinate your efforts, all while staying within budget.
+            </motion.p>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <button className="bg-[#40196D] text-white px-8 py-3 rounded-full font-medium hover:bg-[#40196D] transition-colors">
+                Start for free
+              </button>
+            </motion.div>
+           
           </div>
-        </div>
+          <motion.div 
+            className="relative h-[400px] w-[400px] mx-auto pt-20 my-10 flex items-center justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.9 }}
+            transition={{ duration: 0.7, delay: 0.7 }}
+          >            
+              <Image
+                src={Startimg}
+                alt="BRIVAS for startups"
+                width={465}
+                height={407}
+                className="object-contain"
+                priority
+              />        
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );
 };
 
-export default BenefitsSection; 
+export default BenefitsSection;

@@ -17,14 +17,15 @@ export default function SmsMoPage() {
   return (
     <div>
       <HeroSection />
+       <FeaturesSection />
       <HowItWorksSection />
     <div className="container mx-auto px-4 py-16 md:px-6">
-        <FeaturesSection />
+       
         <UseCasesSection />
         <IntegrationSection />
         <AnalyticsSection />
         <PricingSection />
-        <CTASection />
+       
           </div>
         </div>
   );

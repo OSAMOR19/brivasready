@@ -1,108 +1,104 @@
+"use client";
 import Link from "next/link";
-import { Check } from "lucide-react";
+import { motion } from "framer-motion";
 
-const PricingSection = () => {
-  const plans = [
-    {
-      name: "Starter",
-      description: "Perfect for small businesses just getting started.",
-      price: 29,
-      features: [
-        "Up to 500 flash calls/month",
-        "Basic analytics",
-        "Email support",
-        "API access",
-        "Single app integration"
-      ],
-      buttonText: "Get Started",
-      buttonLink: "/signup",
-      featured: false
-    },
-    {
-      name: "Professional",
-      description: "Ideal for growing businesses with increasing needs.",
-      price: 99,
-      features: [
-        "Up to 2,000 flash calls/month",
-        "Advanced analytics",
-        "Priority email support",
-        "API access",
-        "Multiple app integration",
-        "Custom callback URLs"
-      ],
-      buttonText: "Get Started",
-      buttonLink: "/signup",
-      featured: true
-    },
-    {
-      name: "Enterprise",
-      description: "For large organizations with high-volume requirements.",
-      price: 299,
-      features: [
-        "Unlimited flash calls",
-        "Real-time analytics dashboard",
-        "24/7 phone & email support",
-        "API access",
-        "Unlimited app integration",
-        "Custom callback URLs",
-        "Dedicated account manager"
-      ],
-      buttonText: "Contact Sales",
-      buttonLink: "/contact",
-      featured: false
-    }
-  ];
-
+export default function ResellerPricing() {
   return (
-    <div className="mb-20">
-      <h2 className="text-3xl font-bold text-center mb-4">Simple, Transparent Pricing</h2>
-      <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-        Choose the plan that works best for your business needs and scale as you grow.
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {plans.map((plan, index) => (
-          <div 
-            key={index} 
-            className={`p-8 rounded-2xl border ${
-              plan.featured 
-                ? "border-[#40196D] shadow-lg relative" 
-                : "border-gray-200"
-            }`}
-          >
-            {plan.featured && (
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#40196D] text-white px-4 py-1 rounded-full text-sm font-medium">
-                Most Popular
-              </div>
-            )}
-            <h3 className="text-xl font-semibold mb-2">{plan.name}</h3>
-            <p className="text-gray-600 mb-6">{plan.description}</p>
-            <div className="mb-6">
-              <span className="text-4xl font-bold">${plan.price}</span>
-              <span className="text-gray-600">/month</span>
-            </div>
-            <ul className="space-y-3 mb-8">
-              {plan.features.map((feature, i) => (
-                <li key={i} className="flex items-start">
-                  <Check className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-            <Link 
-              href={plan.buttonLink} 
-              className={`block w-full py-3 text-center rounded-lg font-medium ${
-                plan.featured 
-                  ? "bg-[#40196D] text-white hover:bg-[#40196D]/90" 
-                  : "border border-gray-300 hover:bg-gray-50"
-              } transition-colors`}
+    <div className="py-16 px-4">
+      <div className="text-center mb-12">
+        <h2 className="text-4xl text-black font-bold mb-4">
+          Affordable <span className="text-[#40196D]">Flash Call Pricing</span>
+        </h2>
+        <p className="text-gray-700 max-w-3xl mx-auto">
+        Choose a plan that meets your verification needs, whether youre a small business or a global enterprise.
+        </p>
+      </div>
+
+      <div className="flex flex-wrap justify-center gap-8">
+        {/* Starter Plan */}
+        <motion.div 
+          className="w-80 p-[1px] rounded-3xl bg-gradient-to-b from-[#40196D]/30 to-[#FFFFFF] relative overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          whileHover={{ y: -5, transition: { duration: 0.2 } }}
+        >
+          <div className="bg-white rounded-3xl p-8 h-[383px] flex flex-col">
+            <h3 className="text-2xl mt-7 text-center text-black font-bold mb-4">Starter</h3>
+            <p className="text-gray-600 text-center text-sm mb-auto">
+              Perfect for new resellers with low-volume clients.
+            </p>
+            <motion.div 
+              className="mt-8"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              {plan.buttonText}
-            </Link>
+              <Link
+                href="/start-free"
+                className="block w-full py-3 border border-[#40196D] text-[#40196D] rounded-full text-center hover:bg-gray-50 transition-colors"
+              >
+                Start for free
+              </Link>
+            </motion.div>
           </div>
-        ))}
+        </motion.div>
+
+        {/* Professional Plan */}
+        <motion.div 
+          className="w-80 p-[1px] rounded-3xl bg-gradient-to-b from-[#40196D] to-[#FFFFFF] relative overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          whileHover={{ y: -5, transition: { duration: 0.2 } }}
+        >
+          <div className="bg-white rounded-3xl p-8 h-[383px] flex flex-col">
+            <h3 className="text-2xl mt-7 text-center text-black font-bold mb-4">Professional</h3>
+            <p className="text-gray-600 text-center text-sm mb-auto">
+              Ideal for resellers managing multiple business clients.
+            </p>
+            <motion.div 
+              className="mt-8"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                href="/talk-expert"
+                className="block w-full py-3 bg-[#40196D] text-white rounded-full text-center hover:bg-[#40196D]/90 transition-colors"
+              >
+                Talk to an expert
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Enterprise Plan */}
+        <motion.div 
+          className="w-80 p-[1px] rounded-3xl bg-gradient-to-b from-[#40196D]/30 to-[#FFFFFF] relative overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          whileHover={{ y: -5, transition: { duration: 0.2 } }}
+        >
+          <div className="bg-white rounded-3xl p-8 h-[383px] flex flex-col">
+            <h3 className="text-2xl mt-7 text-center text-black font-bold mb-4">Enterprise</h3>
+            <p className="text-gray-600 text-center text-sm mb-auto">
+              Tailored solutions for large-scale resellers managing enterprise clients.
+            </p>
+            <motion.div 
+              className="mt-8"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                href="/talk-expert"
+                className="block w-full py-3 border border-[#40196D] text-[#40196D] rounded-full text-center hover:bg-gray-50 transition-colors"
+              >
+                Talk to an expert
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
-};
-
-export default PricingSection; 
+}

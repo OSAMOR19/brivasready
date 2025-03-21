@@ -7,15 +7,15 @@ const UseCasesSection = () => {
   const useCases = [
     {
       title: "Disaster Relief Organizations",
-      content: "Send transaction alerts, verification codes, and account updates to users securely. Implement two-factor authentication to protect sensitive financial information."
+      content: "Coordinate relief efforts by keeping volunteers informed with real-time updates via SMS, and communicate with local communities about available aid"
     },
     {
       title: "Education-Focused Non-Profits",
-      content: "Keep customers informed with order confirmations, shipping updates, and delivery notifications. Send promotional messages and special offers to drive sales."
+      content: "Send reminders to students and parents about educational programs, scholarships, or upcoming events, ensuring maximum attendance and participation."
     },
     {
       title: "Environmental Conservation Groups",
-      content: "Streamline user onboarding with verification messages, send feature updates, and provide account security notifications to enhance user experience."
+      content: "Run awareness campaigns through Bulk SMS to promote environmental initiatives, fundraisers, and global climate action efforts"
     },
     {
       title: "Faith-Based Organizations",
@@ -23,7 +23,7 @@ const UseCasesSection = () => {
     },
     {
       title: "Healthcare Non-Profits",
-      content: "Send appointment reminders, medication alerts, and health tips to patients. Verify user identities for secure access to personal health information."
+      content: "Send important health information, reminders, and updates to patients and communities using SMS, especially in areas with low internet connectivity."
     }
   ];
 

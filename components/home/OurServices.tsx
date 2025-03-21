@@ -130,7 +130,7 @@ export default function OurServices() {
                               alt="Person using phone"
                               width={350}
                               height={450}
-                              className="rounded-lg shadow-lg object-cover"
+                              className="rounded-lg  object-cover"
                             />
                           </div>
                           
@@ -219,11 +219,6 @@ export default function OurServices() {
                 {/* Right code image section */}
                 <div className="md:w-1/2 flex items-center justify-center p-6">
                   <div className="relative w-full">
-                    <div className="flex gap-2 mb-2">
-                      {['#E25A89', '#5ABCCE', '#5A89CE', '#8B5ACE', '#CE5A5A'].map((color, index) => (
-                        <div key={index} className="w-4 h-4 rounded-full" style={{ backgroundColor: color }}></div>
-                      ))}
-                    </div>
                     <Image
                       src={codeimg}
                       alt="Code example"

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import correct from "@/components/Images/logos/otpworks.svg"
 
 const SMSOTPProcessSection = () => {
   const steps = [
@@ -39,8 +40,8 @@ const SMSOTPProcessSection = () => {
             {steps.map((step, index) => (
               <div key={step.id} className="flex items-start gap-4">
                 <div className="flex-shrink-0 mt-1">
-                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+                  <div className="w-5 h-5 rounded-full border border-[#B891E5] flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full "></div>
                   </div>
                 </div>
                 <div>
@@ -53,9 +54,9 @@ const SMSOTPProcessSection = () => {
         </div>
         
         <div className="md:w-1/2">
-          <div className="relative h-[300px] w-full">
+          <div className="relative mt-9 h-[400px] w-full">
             <Image 
-              src="/placeholder.svg?height=300&width=300" 
+              src={correct}
               alt="SMS OTP Process Illustration" 
               fill
               className="object-contain"

@@ -27,7 +27,7 @@ const EnterpriseBenefitsSection = () => {
   }, []);
 
   return (
-    <div id="benefits-section" className="py-16 px-4 max-w-6xl mx-auto bg-gray-50">
+    <div id="benefits-section" className="py-16 px-4 max-w-6xl mx-auto ">
       {/* Header */}
       <motion.div 
         className="text-center mb-16"

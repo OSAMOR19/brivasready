@@ -1,11 +1,19 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUp, Mail, Phone, MapPin, Clock } from "lucide-react";
 import Logo from "@/components/Images/logos/brivaslogo.svg";
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <footer className="bg-[#f8f9fc] py-16">
+    <footer className="bg-[#f8f9fc] pb-10 pt-40">
       {/* Empowering Communication Section */}
       <div className="container mx-auto px-4 md:px-6 mb-16">
         <div className="text-center max-w-3xl mx-auto">
@@ -22,9 +30,10 @@ export default function Footer() {
 
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
           {/* Logo and Social Links */}
-          <div>
+          <div className="md:col-span-1">
             <Link href="/" className="inline-block mb-6">
               <Image
                 src={Logo}
@@ -36,11 +45,13 @@ export default function Footer() {
             </Link>
             <div className="flex text-black space-x-3 mb-6">
               <a
-                href="#"
+                href="brivas.io/login"
                 className="bg-white w-8 h-8 rounded-full flex items-center justify-center"
+                aria-label="LinkedIn"
               >
                 <svg
-                  className="w-5 h-5"
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                 >
@@ -48,36 +59,56 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="#"
+                href="brivas.io/login"
                 className="bg-white w-8 h-8 rounded-full flex items-center justify-center"
+                aria-label="Instagram"
               >
                 <svg
-                  className="w-5 h-5"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772c-.5.508-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153 4.904 4.904 0 01-1.153-1.772c-.247-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.247 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 1.802c-2.67 0-2.986.01-4.04.059-.976.045-1.505.207-1.858.344-.466.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.048 1.055-.058 1.37-.058 4.04 0 2.67.01 2.986.058 4.04.045.976.207 1.505.344 1.858.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.04.058 2.67 0 2.986-.01 4.04-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.04 0-2.67-.01-2.986-.058-4.04-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.055-.048-1.37-.058-4.04-.058zm0 3.063a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 8.468a3.333 3.333 0 100-6.666 3.333 3.333 0 000 6.666zm6.538-8.469a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z" />
+                </svg>
+              </a>
+              <a
+                href="brivas.io/login"
+                className="bg-white w-8 h-8 rounded-full flex items-center justify-center"
+                aria-label="X (Twitter)"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+              <a
+                href="brivas.io/login"
+                className="bg-white w-8 h-8 rounded-full flex items-center justify-center"
+                aria-label="Facebook"
+              >
+                <svg
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                 >
                   <path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z" />
                 </svg>
               </a>
-              <a
-                href="#"
-                className="bg-white w-8 h-8 rounded-full flex items-center justify-center"
-              >
-                <svg
-                  className="w-5 h-5"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M22 5.16c-.94.42-1.95.7-3 .82 1.08-.64 1.9-1.66 2.3-2.88-1.01.6-2.13 1.03-3.32 1.27-1.95-2.06-5.23-2.15-7.3-.22-1.42 1.3-2.02 3.26-1.58 5.13-4.3-.22-8.3-2.25-11-5.63-.75 1.3-.73 2.9.08 4.17.56.89 1.33 1.63 2.24 2.17-.83-.03-1.63-.24-2.36-.61v.06c0 1.93 1.36 3.56 3.24 3.93-.76.2-1.56.23-2.34.08.53 1.65 2.05 2.78 3.83 2.82-1.45 1.13-3.26 1.74-5.1 1.74-.33 0-.66-.02-.98-.06 1.87 1.2 4.06 1.83 6.29 1.83 7.55 0 11.67-6.25 11.67-11.67 0-.18 0-.35-.01-.53.8-.58 1.5-1.3 2.05-2.12z" />
-                </svg>
-              </a>
             </div>
-            <div className="flex text-black items-center">
+            <button
+              onClick={scrollToTop}
+              className="flex text-black items-center cursor-pointer hover:text-[#40196D] transition-colors"
+            >
               <ArrowUp className="w-5 h-5 mr-2" />
               <span className="text-sm">Back to top</span>
-            </div>
+            </button>
           </div>
-
           {/* Products Column */}
           <div>
             <h3 className="text-gray-600 font-medium mb-4 lowercase">
@@ -126,7 +157,6 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-
           {/* Resources Column */}
           <div>
             <h3 className="text-gray-600 font-medium mb-4">Resources</h3>
@@ -155,14 +185,10 @@ export default function Footer() {
                   API Documentation
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/additional"
-                  className="text-gray-700 hover:text-[#40196D] text-sm"
-                >
-                  Additional
-                </Link>
-              </li>
+            </ul>
+
+            <h3 className="text-gray-600 mt-3 font-medium mb-2">Additional</h3>
+            <ul className="space-y-2">
               <li>
                 <Link
                   href="/terms-privacy"
@@ -173,8 +199,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-
-          {/* Contact Us Column */}
+          {/* Additional Column */}
           <div>
             <h3 className="text-gray-600 font-medium mb-4">Contact us</h3>
             <ul className="space-y-4">
@@ -200,41 +225,41 @@ export default function Footer() {
                   Nigeria
                 </span>
               </li>
+              <li className="flex items-center mt-8">
+                <Clock className="w-5 h-5 mr-2 text-gray-600" />
+                <p className="text-gray-600 text-sm">
+                  2025 BRIVAS. All Rights Reserved.
+                </p>
+              </li>
             </ul>
           </div>
-        </div>
-
-        {/* Newsletter and Copyright */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* Newsletter Subscription */}
-          <div className="md:col-start-2">
-            <h3 className="text-gray-700 font-medium text-xl mb-2">
-              Stay Updated!
-            </h3>
-            <div className="mb-4">
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full px-4 py-3 rounded-3xl border border-[#F5F6FA] bg-[#F5F6FA] text-black focus:outline-[#F5F6FA"
-              />
-            </div>
-
-            <p className="text-gray-600 text-sm mb-5">
-              Subscribe to our newsletter and never miss updates on our latest
-              products and solutions.
-            </p>
-            <button className="bg-black text-white px-10 py-3 rounded-full hover:bg-gray-800 transition-colors text-lg">
-              Subscribe
-            </button>
+          {/* stay update Column */}
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-8 items-center">
+            <ul>
+              <div className="md:col-span-1">
+                <h1 className="text-gray-500 font-medium text-xl mb-2">
+                  Stay Updated!
+                </h1>
+                <div className="mb-4">
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    className="w-full px-4 py-3 rounded-3xl border border-grey-100 bg-white text-black focus:outline-none"
+                  />
+                </div>
+                <p className="text-gray-600 text-sm mb-5">
+                  Subscribe to our newsletter and never miss updates on our
+                  latest products and solutions.
+                </p>
+                <button className="bg-black text-white px-10 py-3 rounded-full hover:bg-gray-800 transition-colors text-lg w-full">
+                  Subscribe
+                </button>
+              </div>
+            </ul>
+            {/* Copyright */}
           </div>
 
-          {/* Copyright */}
-          <div className="flex items-center md:order-1">
-            <Clock className="w-5 h-5 mr-2 text-gray-600" />
-            <p className="text-gray-600 text-sm">
-              2025 BRIVAS. All Rights Reserved.
-            </p>
-          </div>
+          {/* Stay Updated Column */}
         </div>
       </div>
     </footer>

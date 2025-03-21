@@ -51,7 +51,7 @@ export default function Testimonials() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-3xl text-black md:text-4xl font-bold text-center mb-24"
         >
-          Lorem ipsum dolor sit amet<br />consectetur.
+          What BRIVAS Provides
         </motion.h2>
 
         <div className="flex flex-col md:flex-row">

@@ -1,62 +1,104 @@
-const PricingSection = () => {
-  const plans = [
-    {
-      name: "Starter Plan",
-      description: "Ideal for small businesses or startups offering basic USSD services.",
-      buttonText: "Start for free",
-      buttonStyle: "text-[#40196D] bg-white border border-[#40196D] hover:bg-gray-50"
-    },
-    {
-      name: "Growth plan",
-      description: "For growing businesses that need more advanced USSD features and greater scalability.",
-      buttonText: "Talk to an expert",
-      buttonStyle: "text-white bg-[#40196D] hover:bg-[#351458]"
-    },
-    {
-      name: "Enterprise",
-      description: "Tailored for large businesses with high-volume USSD interactions and custom requirements.",
-      buttonText: "Talk to an expert",
-      buttonStyle: "text-[#40196D] bg-white border border-[#40196D] hover:bg-gray-50"
-    }
-  ];
+"use client";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
+export default function ResellerPricing() {
   return (
-    <div className="py-20 px-4 bg-gray-50">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold mb-4">
-            Flexible Pricing for Your <span className="text-[#40196D]">USSD</span> Needs
-          </h2>
-          <p className="text-gray-600">
-            Choose the plan that fits your business size and customer engagement needs.
-          </p>
-        </div>
+    <div className="py-16 px-4">
+      <div className="text-center mb-12">
+        <h2 className="text-4xl text-black font-bold mb-4">
+        Flexible Pricing for Your <span className="text-[#40196D]"> USSD</span> Needs 
+        </h2>
+        <p className="text-gray-700 max-w-3xl mx-auto">
+        Whether you're running small campaigns or managing large-scale customer service interactions, BRIVAS offers pricing plans to fit your business.
+        </p>
+      </div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className="bg-white rounded-3xl p-8 flex flex-col items-center text-center"
+      <div className="flex flex-wrap justify-center gap-8">
+        {/* Starter Plan */}
+        <motion.div 
+          className="w-80 p-[1px] rounded-3xl bg-gradient-to-b from-[#40196D]/30 to-[#FFFFFF] relative overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          whileHover={{ y: -5, transition: { duration: 0.2 } }}
+        >
+          <div className="bg-white rounded-3xl p-8 h-[383px] flex flex-col">
+            <h3 className="text-2xl mt-7 text-center text-black font-bold mb-4">Starter</h3>
+            <p className="text-gray-600 text-center text-sm mb-auto">
+            Ideal for small businesses with limited incoming SMS needs.
+            </p>
+            <motion.div 
+              className="mt-8"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <h3 className="text-xl font-semibold mb-4">
-                {plan.name}
-              </h3>
-              <p className="text-gray-600 text-sm mb-8">
-                {plan.description}
-              </p>
-              <button
-                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-colors ${plan.buttonStyle}`}
+              <Link
+                href="/start-free"
+                className="block w-full py-3 border border-[#40196D] text-[#40196D] rounded-full text-center hover:bg-gray-50 transition-colors"
               >
-                {plan.buttonText}
-              </button>
-            </div>
-          ))}
-        </div>
+                Start for free
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Professional Plan */}
+        <motion.div 
+          className="w-80 p-[1px] rounded-3xl bg-gradient-to-b from-[#40196D] to-[#FFFFFF] relative overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          whileHover={{ y: -5, transition: { duration: 0.2 } }}
+        >
+          <div className="bg-white rounded-3xl p-8 h-[383px] flex flex-col">
+            <h3 className="text-2xl mt-7 text-center text-black font-bold mb-4">Growth plan</h3>
+            <p className="text-gray-600 text-center text-sm mb-auto">
+            For growing businesses that need more advanced USSD features and greater scalability.
+            </p>
+            <motion.div 
+              className="mt-8"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                href="/talk-expert"
+                className="block w-full py-3 bg-[#40196D] text-white rounded-full text-center hover:bg-[#40196D]/90 transition-colors"
+              >
+                Talk to an expert
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Enterprise Plan */}
+        <motion.div 
+          className="w-80 p-[1px] rounded-3xl bg-gradient-to-b from-[#40196D]/30 to-[#FFFFFF] relative overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          whileHover={{ y: -5, transition: { duration: 0.2 } }}
+        >
+          <div className="bg-white rounded-3xl p-8 h-[383px] flex flex-col">
+            <h3 className="text-2xl mt-7 text-center text-black font-bold mb-4">Enterprise</h3>
+            <p className="text-gray-600 text-center text-sm mb-auto">
+            Tailored for large businesses with high-volume USSD interactions and custom requirements.
+            </p>
+            <motion.div 
+              className="mt-8"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                href="/talk-expert"
+                className="block w-full py-3 border border-[#40196D] text-[#40196D] rounded-full text-center hover:bg-gray-50 transition-colors"
+              >
+                Talk to an expert
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
-};
-
-export default PricingSection; 
+}

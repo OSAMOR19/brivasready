@@ -2,7 +2,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { MessageSquareDashed, Check } from "lucide-react"
-import Img from "@/components/Images/pics/smsotppic.svg"
+import Img from "@/components/Images/pics/phonepicogun.svg"
 import HowItWorksSection from "./components/HowItWorksSection"
 import SMSOTPProcessSection from "./components/SMSOTPProcessSection"
 import UseCasesSection from "./components/UseCasesSection"
@@ -11,6 +11,8 @@ import BenefitsSection from "./components/BenefitsSection"
 import PricingSection from "./components/PricingSection"
 import FAQSection from "./components/FAQSection"
 import CTASection from "./components/CTASection"
+import Halftone from "@/components/Images/pics/halftonedotsimage.svg"
+import { motion } from "framer-motion"
 
 export default function SmsOtpPage() {
   const steps = [
@@ -48,36 +50,137 @@ export default function SmsOtpPage() {
 
   return (
     <div>
-      <div className="container mx-auto px-4 py-16 md:px-6">
-        <div className="flex flex-col md:flex-row items-center gap-12 mb-20">
-          <div className="md:w-1/2">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
-              Secure user Authentication with <span className="text-[#40196D]">SMS OTP</span>
-            </h1>
-            <h6 className="text-xl text-gray-600 mb-8">
-              Protect your applications with real-time, one-time passwords sent via SMS.
-            </h6>
-            <div className="flex flex-wrap gap-4">
-              <Link 
-                href="/contact" 
-                className="px-6 py-3 bg-[#40196D] text-white rounded-full hover:bg-[#40196D]/90 transition-colors"
+      <motion.div 
+        className="w-full bg-[#f8f9fc] py-16 md:py-24 relative overflow-hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        {/* Halftone dots background */}
+        <motion.div 
+          className="absolute right-0 top-0 z-0 opacity-30"
+          animate={{ 
+            opacity: [0.2, 0.4, 0.2],
+            rotate: [0, 5, 0],
+          }}
+          transition={{ 
+            repeat: Infinity,
+            duration: 8,
+            ease: "easeInOut" 
+          }}
+        >
+          <Image 
+            src={Halftone}
+            alt="Background pattern"
+            width={600}
+            height={600}
+          />
+        </motion.div>
+
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <motion.div 
+              className="md:w-1/2 text-left"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.h1 
+                className="text-5xl md:text-6xl font-semibold tracking-tight text-gray-900 mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
               >
-                Get Started 
-              </Link>
-            </div>
-          </div>
-          <div className="md:w-1/2">
-            <div className="relative h-[300px] md:h-[400px] w-full rounded-2xl">
-              <Image 
-                src={Img}
-                alt="SMS OTP Verification" 
-                fill
-                className=""
-              />
-            </div>
+                Secure User Authentication with <span className="text-[#40196D]">SMS OTP</span>
+              </motion.h1>
+              <motion.p 
+                className="text-xl text-black mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                Protect your applications with real-time, one-time passwords sent via SMS.
+              </motion.p>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link 
+                  href="/contact" 
+                  className="inline-block px-8 py-3 bg-[#40196D] text-white rounded-full hover:bg-[#40196D]/90 transition-colors font-medium"
+                >
+                  Get started
+                </Link>
+              </motion.div>
+            </motion.div>
+
+            <motion.div 
+              className="md:w-1/2 relative"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <div className="relative h-[400px] md:h-[500px] w-full">
+                {/* Phone image with floating animation */}
+                <motion.div
+                  className="relative z-10"
+                  animate={{ 
+                    y: [-8, 8, -8],
+                  }}
+                  transition={{ 
+                    repeat: Infinity,
+                    duration: 4,
+                    ease: "easeInOut"
+                  }}
+                >
+                  <Image 
+                    src={Img}
+                    alt="SMS OTP Verification" 
+                    priority
+                    width={400}
+                    height={600}
+                    className="object-contain mx-auto"
+                    style={{ width: 'auto', height: 'auto', maxHeight: '500px' }}
+                  />
+                </motion.div>
+                
+                {/* Small decorative elements */}
+                <motion.div 
+                  className="absolute top-[20%] right-[15%] w-12 h-12 bg-purple-100 rounded-full z-0"
+                  animate={{ 
+                    scale: [1, 1.2, 1],
+                    opacity: [0.5, 0.8, 0.5]
+                  }}
+                  transition={{ 
+                    repeat: Infinity, 
+                    duration: 3,
+                    ease: "easeInOut"
+                  }}
+                />
+                
+                <motion.div 
+                  className="absolute bottom-[30%] left-[20%] w-8 h-8 bg-purple-200 rounded-full z-0"
+                  animate={{ 
+                    scale: [1, 1.3, 1],
+                    opacity: [0.3, 0.7, 0.3]
+                  }}
+                  transition={{ 
+                    repeat: Infinity, 
+                    duration: 2.5,
+                    ease: "easeInOut",
+                    delay: 0.5
+                  }}
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
+      </motion.div>
 
+      <div className="container mx-auto px-4 py-16 md:px-6">
         <HowItWorksSection />
         <SMSOTPProcessSection />
       </div>
@@ -88,7 +191,7 @@ export default function SmsOtpPage() {
         <FeatureSection />
         <BenefitsSection />
         <PricingSection />
-        <CTASection />
+        {/* <CTASection /> */}
       </div>
     </div>
   )
@@ -222,4 +325,4 @@ const pricingPlans = [
     buttonLink: "/contact",
     featured: false
   }
-] 
+]

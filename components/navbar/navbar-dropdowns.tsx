@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   MessageSquare,
@@ -21,6 +22,21 @@ import {
   Heart,
   Landmark,
 } from "lucide-react"
+import smsimg from "@/components/Images/logos/smsmologo.svg"
+import smsotp from "@/components/Images/logos/smsotplogo.svg"
+import smbs from "@/components/Images/logos/smbslogo.svg"
+import flashcall from "@/components/Images/logos/flashcalllogo.svg"
+import smsmo from "@/components/Images/logos/smsmologo.svg"
+import startup from "@/components/Images/logos/startuplogo.svg"
+import Enterprise from "@/components/Images/logos/enterpriselogo.svg"
+import nonprofit from "@/components/Images/logos/nonprofitlogo.svg"
+import ecommerce from "@/components/Images/logos/ecommercelogo.svg"
+import education from "@/components/Images/logos/educationlogo.svg"
+import healthcare from "@/components/Images/logos/healthcarelogo.svg"
+import financial from "@/components/Images/logos/financialservicelogo.svg"
+import retail from "@/components/Images/logos/retaillogo.svg"
+import telecom from "@/components/Images/logos/telecommunicationslogo.svg"
+
 
 // Define dropdown and hover state types
 type DropdownState = {
@@ -124,8 +140,8 @@ export function NavbarDropdowns() {
                       onMouseEnter={() => handleCategoryHover("messaging")}
                     >
                       <div className="flex items-center">
-                        <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
-                          <MessageSquare className="w-5 h-5 text-[#40196D]" />
+                        <div className="w-[34px] h-[34px] flex items-center justify-center mr-3">
+                          {/* <MessageSquare className="w-5 h-5 text-[#40196D]" /> */}
                         </div>
                         <div>
                           <div className="font-medium text-gray-900">Messaging</div>
@@ -141,8 +157,8 @@ export function NavbarDropdowns() {
                       onMouseEnter={() => handleCategoryHover("verification")}
                     >
                       <div className="flex items-center">
-                        <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
-                          <ShieldCheck className="w-5 h-5 text-[#40196D]" />
+                        <div className="w-[34px] h-[34px] flex items-center justify-center mr-3">
+                          {/* <ShieldCheck className="w-5 h-5 text-[#40196D]" /> */}
                         </div>
                         <div>
                           <div className="font-medium text-gray-900">Verification</div>
@@ -158,8 +174,8 @@ export function NavbarDropdowns() {
                       onMouseEnter={() => handleCategoryHover("selfHosted")}
                     >
                       <div className="flex items-center">
-                        <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
-                          <Layout className="w-5 h-5 text-[#40196D]" />
+                        <div className="w-[34px] h-[34px]  flex items-center justify-center mr-3">
+                          {/* <Layout className="w-5 h-5 text-[#40196D]" /> */}
                         </div>
                         <div>
                           <div className="font-medium text-gray-900">Self-Hosted</div>
@@ -174,7 +190,7 @@ export function NavbarDropdowns() {
 
                 <div>
                   <div className="mb-4">
-                    <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Channels</h3>
+                    <h3 className="text-sm font-medium text-[#646464]  tracking-wider">Channels</h3>
                   </div>
                   <div className="space-y-4">
                     {/* Messaging hover content */}
@@ -182,8 +198,8 @@ export function NavbarDropdowns() {
                       <>
                         <Link href="/products/sms" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
                           <div className="flex items-center">
-                            <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
-                              <MessageCircle className="w-5 h-5 text-[#40196D]" />
+                            <div className="w-[34px] h-[34px] flex items-center justify-center mr-3">
+                              <Image src={smsimg} alt="SMS" width={40} height={40} />
                             </div>
                             <div>
                               <div className="font-medium text-gray-900">SMS</div>
@@ -194,9 +210,9 @@ export function NavbarDropdowns() {
                           </div>
                         </Link>
 
-                        <Link href="/products/voice" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
+                        {/* <Link href="/products/voice" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
                           <div className="flex items-center">
-                            <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
+                            <div className="w-[34px] h-[34px]  flex items-center justify-center mr-3">
                               <Phone className="w-5 h-5 text-[#40196D]" />
                             </div>
                             <div>
@@ -206,11 +222,11 @@ export function NavbarDropdowns() {
                               </div>
                             </div>
                           </div>
-                        </Link>
+                        </Link> */}
 
-                        <Link href="/products/flash-call" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
+                        {/* <Link href="/products/flash-call" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
                           <div className="flex items-center">
-                            <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
+                            <div className="w-[34px] h-[34px]  flex items-center justify-center mr-3">
                               <PhoneCall className="w-5 h-5 text-[#40196D]" />
                             </div>
                             <div>
@@ -220,7 +236,7 @@ export function NavbarDropdowns() {
                               </div>
                             </div>
                           </div>
-                        </Link>
+                        </Link> */}
 
                         <Link href="/signup" className="mt-4 block">
                           <button className="w-full bg-[#40196D] text-white border border-gray-300 px-6 py-2.5 rounded-full font-medium hover:bg-gray-50 transition-all">
@@ -235,8 +251,8 @@ export function NavbarDropdowns() {
                       <>
                         <Link href="/products/sms-otp" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
                           <div className="flex items-center">
-                            <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
-                              <MessageSquareDashed className="w-5 h-5 text-[#40196D]" />
+                            <div className="w-[34px] h-[34px]  flex items-center justify-center mr-3">
+                              <Image src={smsotp} alt="SMS OTP" width={40} height={40} />
                             </div>
                             <div>
                               <div className="font-medium text-gray-900">SMS OTP</div>
@@ -247,8 +263,8 @@ export function NavbarDropdowns() {
 
                         <Link href="/products/flash-call" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
                           <div className="flex items-center">
-                            <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
-                              <Phone className="w-5 h-5 text-[#40196D]" />
+                            <div className="w-[34px] h-[34px]  flex items-center justify-center mr-3">
+                              <Image src={flashcall} alt="Flash Call" width={40} height={40} />
                             </div>
                             <div>
                               <div className="font-medium text-gray-900">Flash Call</div>
@@ -270,7 +286,7 @@ export function NavbarDropdowns() {
                       <>
                         <Link href="/products/sms-mo" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
                           <div className="flex items-center">
-                            <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
+                            <div className="w-[34px] h-[34px]  flex items-center justify-center mr-3">
                               <MessageSquareDashed className="w-5 h-5 text-[#40196D]" />
                             </div>
                             <div>
@@ -282,8 +298,8 @@ export function NavbarDropdowns() {
 
                         <Link href="/products/ussd-pull" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
                           <div className="flex items-center">
-                            <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
-                              <PhoneCall className="w-5 h-5 text-[#40196D]" />
+                            <div className="w-[34px] h-[34px] flex items-center justify-center mr-3">
+                              <Image src={smsimg} alt="SMS" width={40} height={40} />
                             </div>
                             <div>
                               <div className="font-medium text-gray-900">USSD PULL</div>
@@ -330,19 +346,20 @@ export function NavbarDropdowns() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.2 }}
-              className="absolute left-0 mt-2 w-[600px] bg-white rounded-[20px] shadow-lg border border-gray-200 p-6"
+              className="absolute left-0 mt-2 min-w-[700px] bg-white rounded-[20px] shadow-lg border border-gray-200 p-6"
             >
-              <div className="grid grid-cols-2 gap-8">
-                <div>
-                  <div className="space-y-4">
+              <div className="grid grid-cols-12 gap-9 ">
+                <div className="col-span-4">
+                  <div >
+                    <div className="space-y-4">
                     <div
                       className="block p-3 hover:bg-gray-50 rounded-xl cursor-pointer transition-colors"
                       onMouseEnter={() => handleCategoryHover("business")}
                     >
                       <div className="flex items-center">
-                        <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
-                          <Building2 className="w-5 h-5 text-[#40196D]" />
-                        </div>
+                        {/* <div className="w-[34px] h-[34px]  flex items-center justify-center mr-3"> */}
+                          {/* <Building2 className="w-5 h-5 text-[#40196D]" /> */}
+                        {/* </div> */}
                         <div>
                           <div className="font-medium text-gray-900">Business</div>
                           <div className="text-sm text-gray-500">Solutions for businesses of all sizes</div>
@@ -355,21 +372,31 @@ export function NavbarDropdowns() {
                       onMouseEnter={() => handleCategoryHover("industries")}
                     >
                       <div className="flex items-center">
-                        <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
-                          <Briefcase className="w-5 h-5 text-[#40196D]" />
-                        </div>
+                        {/* <div className="w-[34px] h-[34px]  flex items-center justify-center mr-3"> */}
+                          {/* <Briefcase className="w-5 h-5 text-[#40196D]" /> */}
+                        {/* </div> */}
                         <div>
                           <div className="font-medium text-gray-900">Industries</div>
                           <div className="text-sm text-gray-500">Tailored solutions for specific industries</div>
                         </div>
                       </div>
                     </div>
+                    </div>
+                   
+
+                    <div className="mt-20">
+                        <Link href="/contact" className="mt-4 block">
+                          <button className="w-full bg-[#40196D] text-white border border-gray-300 px-6 py-2.5 rounded-full font-medium hover:bg-gray-50 transition-all">
+                            Contact Sales
+                          </button>
+                        </Link>
+                    </div>
                   </div>
                 </div>
 
-                <div>
+                <div className="col-span-8">
                   <div className="mb-4">
-                    <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Options</h3>
+                    <h3 className="text-sm font-semibold text-gray-400  tracking-wider">Channels</h3>
                   </div>
                   <div className="space-y-4">
                     {/* Business hover content */}
@@ -377,105 +404,137 @@ export function NavbarDropdowns() {
                       <>
                         <Link href="/solutions/startup" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
                           <div className="flex items-center">
-                            <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
-                              <Rocket className="w-5 h-5 text-[#40196D]" />
+                          <div className="w-[34px] h-[34px] flex items-center justify-center mr-3">
+                              <Image src={startup} alt="SMS" width={40} height={40} />
                             </div>
                             <div>
                               <div className="font-medium text-gray-900">Startup</div>
-                              <div className="text-sm text-gray-500">Solutions for growing businesses</div>
+                              <div className="text-sm text-gray-500">Solutions for <br/> growing businesses</div>
                             </div>
                           </div>
                         </Link>
 
                         <Link href="/solutions/enterprise" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
                           <div className="flex items-center">
-                            <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
-                              <Building className="w-5 h-5 text-[#40196D]" />
+                          <div className="w-[34px] h-[34px] flex items-center justify-center mr-3">
+                              <Image src={Enterprise} alt="SMS" width={40} height={40} />
                             </div>
                             <div>
                               <div className="font-medium text-gray-900">Enterprise</div>
-                              <div className="text-sm text-gray-500">Scalable solutions for large organizations</div>
+                              <div className="text-sm text-gray-500">Scalable solutions <br/> for large organizations</div>
                             </div>
                           </div>
                         </Link>
 
                         <Link href="/solutions/non-profit" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
                           <div className="flex items-center">
-                            <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
-                              <Heart className="w-5 h-5 text-[#40196D]" />
+                          <div className="w-[34px] h-[34px] flex items-center justify-center mr-3">
+                              <Image src={nonprofit} alt="SMS" width={40} height={40} />
                             </div>
                             <div>
                               <div className="font-medium text-gray-900">Non-Profit</div>
-                              <div className="text-sm text-gray-500">Special solutions for nonprofit organizations</div>
+                              <div className="text-sm text-gray-500">Special solutions for <br/> nonprofit organizations</div>
                             </div>
                           </div>
                         </Link>
 
-                        <Link href="/contact" className="mt-4 block">
-                          <button className="w-full bg-[#40196D] text-white border border-gray-300 px-6 py-2.5 rounded-full font-medium hover:bg-gray-50 transition-all">
-                            Contact Sales
-                          </button>
+                        <Link href="/solutions/smbs" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
+                          <div className="flex items-center">
+                          <div className="w-[34px] h-[34px] flex items-center justify-center mr-3">
+                              <Image src={smbs} alt="SMS" width={40} height={40} />
+                            </div>
+                            <div>
+                              <div className="font-medium text-gray-900">SMBs</div>
+                              <div className="text-sm text-gray-500">Special solutions for small <br/> medium organizations</div>
+                            </div>
+                          </div>
                         </Link>
+
                       </>
                     )}
 
                     {/* Industries hover content */}
                     {hoverState.industries && (
-                      <>
-                        <Link href="/solutions/ecommerce" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
-                          <div className="flex items-center">
-                            <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
-                              <Store className="w-5 h-5 text-[#40196D]" />
-                            </div>
-                            <div>
-                              <div className="font-medium text-gray-900">E-commerce</div>
-                              <div className="text-sm text-gray-500">Solutions for online retailers</div>
-                            </div>
-                          </div>
-                        </Link>
+                      <div className="grid grid-cols-2">
+                        <div>
 
-                        <Link href="/solutions/education" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
-                          <div className="flex items-center">
-                            <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
-                              <GraduationCap className="w-5 h-5 text-[#40196D]" />
+                        
+                          <Link href="/solutions/ecommerce" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
+                            <div className="flex items-center">
+                            <div className="w-[34px] h-[34px] flex items-center justify-center mr-3">
+                                <Image src={ecommerce} alt="SMS" width={40} height={40} />
+                              </div>
+                              <div>
+                                <div className="font-medium text-gray-900">E-commerce</div>
+                                <div className="text-sm text-gray-500">Solutions for online retailers</div>
+                              </div>
                             </div>
-                            <div>
-                              <div className="font-medium text-gray-900">Education</div>
-                              <div className="text-sm text-gray-500">Solutions for educational institutions</div>
-                            </div>
-                          </div>
-                        </Link>
+                          </Link>
 
-                        <Link href="/solutions/healthcare" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
-                          <div className="flex items-center">
-                            <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
-                              <HeartPulse className="w-5 h-5 text-[#40196D]" />
+                          <Link href="/solutions/education" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
+                            <div className="flex items-center">
+                            <div className="w-[34px] h-[34px] flex items-center justify-center mr-3">
+                                <Image src={education} alt="SMS" width={40} height={40} />
+                              </div>
+                              <div>
+                                <div className="font-medium text-gray-900">Education</div>
+                                <div className="text-sm text-gray-500">Solutions for educational institutions</div>
+                              </div>
                             </div>
-                            <div>
-                              <div className="font-medium text-gray-900">Healthcare</div>
-                              <div className="text-sm text-gray-500">HIPAA-compliant solutions for healthcare</div>
-                            </div>
-                          </div>
-                        </Link>
+                          </Link>
 
+                          <Link href="/solutions/healthcare" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
+                            <div className="flex items-center">
+                            <div className="w-[45px] h-[45px] flex items-center justify-center mr-3">
+                                <Image src={healthcare} alt="SMS" width={50} height={50} />
+                              </div>
+                              <div>
+                                <div className="font-medium text-gray-900">Healthcare</div>
+                                <div className="text-sm text-gray-500">HIPAA-compliant solutions for healthcare</div>
+                              </div>
+                            </div>
+                          </Link>
+
+                          <Link href="/solutions/industries" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
+                            <div className="flex items-center">
+                            <div className="w-[40px] h-[40px] flex items-center justify-center mr-3">
+                                <Image src={retail} alt="SMS" width={40} height={40} />
+                              </div>
+                              <div>
+                                <div className="font-medium text-gray-900">Retail</div>
+                                <div className="text-sm text-gray-500">Solutions for retail businesses</div>
+                              </div>
+                            </div>
+                          </Link>                  
+                        </div>
+
+                        <div>
                         <Link href="/solutions/industries" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
                           <div className="flex items-center">
-                            <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
-                              <Landmark className="w-5 h-5 text-[#40196D]" />
+                          <div className="w-[40px] h-[40px] flex items-center justify-center mr-3">
+                              <Image src={financial} alt="SMS" width={40} height={40} />
                             </div>
                             <div>
-                              <div className="font-medium text-gray-900">Financial Services</div>
+                              <div className="font-medium text-gray-900">Financial</div>
                               <div className="text-sm text-gray-500">Secure solutions for financial institutions</div>
                             </div>
                           </div>
                         </Link>
 
-                        <Link href="/contact" className="mt-4 block">
-                          <button className="w-full bg-[#40196D] text-black border border-gray-300 px-6 py-2.5 rounded-full font-medium hover:bg-gray-50 transition-all">
-                            Contact Sales
-                          </button>
+                        <Link href="/solutions/telecommunications" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
+                          <div className="flex items-center">
+                          <div className="w-[40px] h-[40px] flex items-center justify-center mr-3">
+                              <Image src={telecom} alt="SMS" width={40} height={40} />
+                            </div>
+                            <div>
+                              <div className="font-medium text-gray-900">Telecommunication</div>
+                              <div className="text-sm text-gray-500">Secure solutions for financial institutions</div>
+                            </div>
+                          </div>
                         </Link>
-                      </>
+                          
+                        </div>      
+                      </div>
                     )}
 
                     {/* Show nothing when no category is hovered */}
@@ -513,7 +572,7 @@ export function NavbarDropdowns() {
               <div className="space-y-4">
                 <Link href="/partners/become-partner" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
                   <div className="flex items-center">
-                    <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
+                    <div className="w-[34px] h-[34px]  flex items-center justify-center mr-3">
                       <Briefcase className="w-5 h-5 text-[#40196D]" />
                     </div>
                     <div>
@@ -527,7 +586,7 @@ export function NavbarDropdowns() {
 
                 <Link href="/partners/find-partner" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
                   <div className="flex items-center">
-                    <div className="w-[34px] h-[34px] rounded-xl bg-[#40196D]/10 flex items-center justify-center mr-3">
+                    <div className="w-[34px] h-[34px]  flex items-center justify-center mr-3">
                       <Building className="w-5 h-5 text-[#40196D]" />
                     </div>
                     <div>
@@ -587,4 +646,4 @@ export function NavbarDropdowns() {
       </Link>
     </>
   )
-} 
+}

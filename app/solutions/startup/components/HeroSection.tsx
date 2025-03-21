@@ -26,7 +26,7 @@ const HeroSection = () => {
           sizes="100vw"
         />
         <motion.div 
-          className="absolute inset-0 bg-black"
+          className="absolute inset-0 "
           initial={{ opacity: 0.8 }}
           animate={{ opacity: 0.6 }}
           transition={{ duration: 1.5 }}
@@ -37,30 +37,8 @@ const HeroSection = () => {
       <div className="relative h-full flex items-center justify-center">
         <div className="max-w-6xl mx-auto px-4 text-center text-white">
           <div className="max-w-3xl mx-auto">
-            <motion.h1 
-              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              Empower Your <motion.span 
-                className="text-[#FF3366]"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.9 }}
-                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              >
-                Startup
-              </motion.span> with Scalable Communication Solutions
-            </motion.h1>
-            <motion.p 
-              className="text-lg sm:text-xl mb-8 text-gray-200"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            >
-              Accelerate your growth with cost-effective messaging, verification, and USSD services tailored for startups.
-            </motion.p>
-            <motion.div
+
+          <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
@@ -69,11 +47,36 @@ const HeroSection = () => {
             >
               <Link 
                 href="/signup" 
-                className="inline-block bg-white text-[#40196D] px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors"
+                className="inline-block bg-white text-[#A4031F] mb-3 mt-20 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors"
               >
                 Start for free
               </Link>
             </motion.div>
+
+            <motion.h1 
+              className="text-5xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              Empower Your <motion.span 
+                className="text-[#A4031F] font-bold mb-6"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.9 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+              >
+                Startup
+              </motion.span> with Scalable Communication Solutions
+            </motion.h1>
+            <motion.p 
+              className="text-lg sm:text-xl  text-gray-200"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            >
+              Accelerate your growth with cost-effective messaging, verification, and USSD services tailored for startups.
+            </motion.p>
+            
           </div>
         </div>
       </div>

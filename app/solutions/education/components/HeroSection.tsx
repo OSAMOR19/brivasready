@@ -26,7 +26,7 @@ const HeroSection = () => {
           sizes="100vw"
         />
         <motion.div 
-          className="absolute inset-0 bg-black"
+          className="absolute inset-0 "
           initial={{ opacity: 0.8 }}
           animate={{ opacity: 0.6 }}
           transition={{ duration: 1.5 }}
@@ -54,7 +54,7 @@ const HeroSection = () => {
                 Transforming 
               </motion.span>{" "}
               <motion.span
-                className="text-[#4CAF50]"
+                className="text-white"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.9 }}
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}

@@ -1,65 +1,105 @@
+"use client";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
-const PricingSection = () => {
-  const plans = [
-    {
-      name: "Starter",
-      description: "Perfect for startups with low OTP volume.",
-      buttonText: "Start for free",
-      buttonLink: "/signup",
-      buttonStyle: "outline"
-    },
-    {
-      name: "Professional",
-      description: "Ideal for growing businesses needing a scalable solution.",
-      buttonText: "Talk to an expert",
-      buttonLink: "/contact",
-      buttonStyle: "filled"
-    },
-    {
-      name: "Enterprise",
-      description: "Tailored solutions for large enterprises with high OTP requirements.",
-      buttonText: "Talk to an expert",
-      buttonLink: "/contact",
-      buttonStyle: "outline"
-    }
-  ];
-
+export default function ResellerPricing() {
   return (
-    <div className="mb-20">
-      <h2 className="text-3xl text-black font-bold text-center mb-4">
-        Affordable SMS OTP Pricing for <span className="text-black">Every Business</span>
-      </h2>
-      <p className="text-gray-600 text-center mb-12 max-w-4xl mx-auto">
-        Choose a plan that suits your business size and needs.
-      </p>
-      
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {plans.map((plan, index) => (
-          <div 
-            key={index} 
-            className="bg-white p-8 rounded-3xl shadow-sm border border-gray-200"
-          >
-            <h3 className="text-2xl text-black font-semibold text-center mb-4">{plan.name}</h3>
-            <p className="text-gray-600 text-center mb-12 h-16">{plan.description}</p>
-            
-            <div className="flex justify-center">
+    <div className="py-16 px-4">
+      <div className="text-center mb-12">
+        <h2 className="text-5xl text-black font-semibold mb-4">
+        Affordable SMS OTP Pricing for <br/> Every Business
+        </h2>
+        <p className="text-gray-700 max-w-3xl mx-auto">
+          Create your own pricing structure for SMS credits, allowing you to maximize profits while offering
+          competitive rates to your customers.
+        </p>
+      </div>
+
+      <div className="flex flex-wrap justify-center gap-8">
+        {/* Starter Plan */}
+        <motion.div 
+          className="w-80 p-[1px] rounded-3xl bg-gradient-to-b from-[#40196D]/30 to-[#FFFFFF] relative overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          whileHover={{ y: -5, transition: { duration: 0.2 } }}
+        >
+          <div className="bg-white rounded-3xl p-8 h-[383px] flex flex-col">
+            <h3 className="text-2xl mt-7 text-center text-black font-bold mb-4">Starter</h3>
+            <p className="text-gray-600 text-center text-sm mb-auto">
+              Perfect for new resellers with low-volume clients.
+            </p>
+            <motion.div 
+              className="mt-8"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <Link
-                href={plan.buttonLink}
-                className={`px-8 py-3 rounded-full text-center ${
-                  plan.buttonStyle === "filled"
-                    ? "bg-[#40196D] text-white hover:bg-[#40196D]/90"
-                    : "border border-[#40196D] text-[#40196D] hover:bg-gray-50"
-                } transition-colors font-medium`}
+                href="/start-free"
+                className="block w-full py-3 border border-[#40196D] text-[#40196D] rounded-full text-center hover:bg-gray-50 transition-colors"
               >
-                {plan.buttonText}
+                Start for free
               </Link>
-            </div>
+            </motion.div>
           </div>
-        ))}
+        </motion.div>
+
+        {/* Professional Plan */}
+        <motion.div 
+          className="w-80 p-[1px] rounded-3xl bg-gradient-to-b from-[#40196D] to-[#FFFFFF] relative overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          whileHover={{ y: -5, transition: { duration: 0.2 } }}
+        >
+          <div className="bg-white rounded-3xl p-8 h-[383px] flex flex-col">
+            <h3 className="text-2xl mt-7 text-center text-black font-bold mb-4">Professional</h3>
+            <p className="text-gray-600 text-center text-sm mb-auto">
+              Ideal for resellers managing multiple business clients.
+            </p>
+            <motion.div 
+              className="mt-8"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                href="/talk-expert"
+                className="block w-full py-3 bg-[#40196D] text-white rounded-full text-center hover:bg-[#40196D]/90 transition-colors"
+              >
+                Talk to an expert
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Enterprise Plan */}
+        <motion.div 
+          className="w-80 p-[1px] rounded-3xl bg-gradient-to-b from-[#40196D]/30 to-[#FFFFFF] relative overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          whileHover={{ y: -5, transition: { duration: 0.2 } }}
+        >
+          <div className="bg-white rounded-3xl p-8 h-[383px] flex flex-col">
+            <h3 className="text-2xl mt-7 text-center text-black font-bold mb-4">Enterprise</h3>
+            <p className="text-gray-600 text-center text-sm mb-auto">
+              Tailored solutions for large-scale resellers managing enterprise clients.
+            </p>
+            <motion.div 
+              className="mt-8"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                href="/talk-expert"
+                className="block w-full py-3 border border-[#40196D] text-[#40196D] rounded-full text-center hover:bg-gray-50 transition-colors"
+              >
+                Talk to an expert
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
-};
-
-export default PricingSection; 
+}

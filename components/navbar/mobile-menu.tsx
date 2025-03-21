@@ -22,7 +22,9 @@ import {
   MessageSquareDashed,
 } from "lucide-react"
 
-export function MobileMenu() {
+// At the top of your mobile-menu.tsx file, update the component definition:
+export function MobileMenu({ closeMenu }: { closeMenu?: () => void }) {
+  // This makes the closeMenu prop optional with the ? mark
   const [openSections, setOpenSections] = useState({
     products: false,
     solutions: false,
@@ -352,4 +354,4 @@ export function MobileMenu() {
       </div>
     </div>
   )
-} 
+}

@@ -3,7 +3,7 @@ import Link from "next/link";
 const HeroSection = () => {
   return (
     <div className="md:w-1/2">
-      <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
+      <h1 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl mb-6">
         Secure user Authentication with <span className="text-[#40196D]">SMS OTP</span>
       </h1>
       <h6 className="text-xl text-gray-600 mb-8">

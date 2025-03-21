@@ -1,4 +1,5 @@
 import Image from "next/image";
+import correct from "@/components/Images/pics/myguy.svg"
 
 const UseCasesSection = () => {
   const useCases = [
@@ -25,13 +26,13 @@ const UseCasesSection = () => {
   ];
 
   return (
-    <div className="py-12 bg-gray-50">
+    <div className="py-12 pt-40 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row items-start gap-12">
           <div className="md:w-1/2">
-            <div className="relative h-[300px] w-full">
+            <div className="relative h-[600px] w-full">
               <Image 
-                src="/placeholder.svg?height=300&width=300" 
+                src={correct}
                 alt="Person using SMS OTP" 
                 fill
                 className="object-cover rounded-lg"
@@ -45,10 +46,10 @@ const UseCasesSection = () => {
             
             <div className="space-y-6">
               {useCases.map((useCase, index) => (
-                <div key={index} className="flex items-start gap-4">
+                <div key={index} className="flex mt-5 items-start gap-4">
                   <div className="flex-shrink-0 mt-1">
-                    <div className="w-5 h-5 rounded-full border border-[#40196D] flex items-center justify-center">
-                      <div className="w-2 h-2 rounded-full bg-[#40196D]"></div>
+                    <div className="w-5 h-5 rounded-full border border-[#B891E5] flex items-center justify-center">
+                      <div className="w-2 h-2 rounded-full "></div>
                     </div>
                   </div>
                   <div>

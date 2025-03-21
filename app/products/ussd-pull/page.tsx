@@ -20,9 +20,6 @@ export default function USSDPullPage() {
       <IntegrationFeatures />
       <TrackingFeatures />
       <PricingSection />
-      <div className="container mx-auto px-4 py-16 md:px-6">
-        
-      </div>
     </main>
   )
 }

@@ -56,7 +56,7 @@ const EcommerceOptimizedCommunications = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Link 
-              href="#" 
+              href="brivas.io/login" 
               className="bg-[#40196D] text-white px-8 py-3 rounded-full font-medium hover:bg-[#351458] transition-colors"
             >
               Read more

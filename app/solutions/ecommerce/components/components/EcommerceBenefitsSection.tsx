@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import ecomimage from "@/components/Images/pics/ecomimage.svg";
 
 const EcommerceBenefitsSection = () => {
   const [openBenefit, setOpenBenefit] = useState('Real-Time Notifications');
@@ -155,69 +156,21 @@ const EcommerceBenefitsSection = () => {
               transition={{ duration: 0.7, delay: 0.8 }}
             >
               <Image
-                src="/images/fuel-image-1.jpg" // Update with your actual image path
+                src={ecomimage} // Update with your actual image path
                 alt="BRIVAS for e-commerce"
-                fill
-                className="object-cover"
+                // width={800}
+                // height={600}
+                className="object-cover w-full h-full"
                 onError={(e) => {
                   // Fallback if the image doesn't exist
                   const target = e.target as HTMLImageElement;
                   target.onerror = null;
-                  target.src = "https://placehold.co/600x400?text=E-commerce+Solutions&bg=40196D&fg=ffffff";
                 }}
               />
             </motion.div>
             
             {/* Overlapping Image */}
-            <motion.div 
-              className="absolute right-0 top-0 w-1/2 h-[200px] bg-gray-300 rounded-lg overflow-hidden shadow-lg"
-              initial={{ x: 50, opacity: 0 }}
-              animate={{ x: isVisible ? 0 : 50, opacity: isVisible ? 1 : 0 }}
-              transition={{ duration: 0.7, delay: 0.9 }}
-            >
-              <div className="relative w-full h-full">
-                <Image
-                  src="/images/fuel-image-2.jpg" // Update with your actual image path
-                  alt="Online Shopping Experience"
-                  fill
-                  className="object-cover"
-                  onError={(e) => {
-                    // Fallback if the image doesn't exist
-                    const target = e.target as HTMLImageElement;
-                    target.onerror = null;
-                    target.src = "https://placehold.co/600x400?text=Online+Shopping&bg=B91C1C&fg=ffffff";
-                  }}
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-30" />
-                <div className="absolute inset-0 flex flex-col justify-between p-4 text-white">
-                  <div>
-                    <p className="font-medium">Enhanced Shopping Experience</p>
-                  </div>
-                  <div className="flex justify-between items-end">
-                    <p className="text-sm">Boost customer satisfaction</p>
-                    <motion.button 
-                      className="bg-white text-[#40196D] px-4 py-1 rounded-full text-xs"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Start for free
-                    </motion.button>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-            
-            {/* Stats Badge */}
-            <motion.div 
-              className="absolute bottom-4 right-4 bg-blue-500 text-white px-3 py-1 rounded text-sm flex items-center"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: isVisible ? 1 : 0, opacity: isVisible ? 1 : 0 }}
-              transition={{ duration: 0.5, delay: 1.0 }}
-            >
-              <span>273</span>
-              <span className="mx-1">≡</span>
-              <span>356</span>
-            </motion.div>
+
           </motion.div>
         </motion.div>
       </div>

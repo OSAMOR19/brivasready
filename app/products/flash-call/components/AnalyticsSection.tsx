@@ -1,69 +1,127 @@
+'use client';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import monitorImage from "@/components/Images/pics/monitorimage.svg";
 import Image from "next/image";
-import { ClipboardList, BarChart2, AlertCircle } from "lucide-react";
+import { ClipboardList, BarChart2, AlertCircle, LucideBedDouble, LightbulbIcon, LightbulbOffIcon, Lightbulb } from "lucide-react";
 
 const AnalyticsSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const element = document.getElementById('analytics-section');
+      
+      if (element) {
+        const elementPosition = element.getBoundingClientRect().top + scrollPosition;
+        if (scrollPosition > elementPosition - windowHeight * 0.8) {
+          setIsVisible(true);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const features = [
     {
+      icon: <ClipboardList className="h-6 w-6 text-[#B891E5]" />,
       title: "Call Logs",
-      description: "Access detailed logs for every Flash Call, including status, timestamps, and more",
-      icon: <ClipboardList className="h-5 w-5 text-[#40196D]" />
+      description: "Access detailed logs for every Flash Call, including status, timestamps, and more."
     },
     {
+      icon: <Lightbulb className="h-6 w-6 text-[#B891E5]" />,
       title: "Delivery Insights",
-      description: "Analyze the success rates of Flash Calls in real time.",
-      icon: <BarChart2 className="h-5 w-5 text-[#40196D]" />
+      description: "Analyze the success rates of Flash Calls in real time."
     },
     {
+      icon: <AlertCircle className="h-6 w-6 text-[#B891E5]" />,
       title: "Error Handling",
-      description: "Quickly identify and resolve any issues with failed or undelivered calls.",
-      icon: <AlertCircle className="h-5 w-5 text-[#40196D]" />
-    }
+      description: "Quickly identify and resolve any issues with failed or undelivered calls."
+    },
   ];
 
   return (
-    <div className="mb-20 py-16 bg-gray-50">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="md:w-1/2">
-            <h2 className="text-3xl font-bold mb-4">
-              Monitor and Analyze Every Call in Real-Time
-            </h2>
-            <p className="text-gray-700 mb-8">
-              BRIVAS offers real-time monitoring tools, allowing you to track call delivery and success rates. View detailed logs and reports for each Flash Call.
-            </p>
+    <div id="analytics-section" className="py-16 px-4  relative overflow-hidden">
+      {/* Background cell tower image - semi-transparent */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="h-full w-full bg-[url('/images/cell-tower.jpg')] bg-no-repeat bg-center bg-cover"></div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Left side - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -50 }}
+            transition={{ duration: 0.7 }}
+            className="text-black"
+          >
+            <motion.h2 
+              className="text-4xl font-bold mb-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isVisible ? 1 : 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              Monitor and Analyze Every <br/> Call in Real-Time
+            </motion.h2>
             
-            <div className="space-y-6">
+            <motion.p 
+              className="text-gray-700 mb-10"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isVisible ? 1 : 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              BRIVAS offers real-time monitoring tools, allowing you to track call delivery and success rates. View detailed logs and reports for each Flash Call.
+            </motion.p>
+            
+            <div className="space-y-8">
               {features.map((feature, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-[#F3EEFF] flex items-center justify-center flex-shrink-0">
+                <motion.div 
+                  key={feature.title} 
+                  className="flex gap-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+                  transition={{ duration: 0.5, delay: 0.4 + (index * 0.1) }}
+                >
+                  <div className="flex-shrink-0 mt-1">
                     {feature.icon}
                   </div>
                   <div>
-                    <h3 className="text-base font-semibold mb-1">{feature.title}</h3>
-                    <p className="text-gray-600 text-sm">{feature.description}</p>
+                    <h4 className="font-medium text-lg mb-2">{feature.title}</h4>
+                    <p className="text-gray-600">{feature.description}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
-          
-          <div className="md:w-1/2">
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="relative h-[300px] w-full">
-                <Image 
-                  src="/placeholder.svg?height=300&width=400" 
-                  alt="Analytics Dashboard" 
-                  fill
-                  className="object-contain"
-                />
-                {/* Replace with your actual analytics dashboard image */}
-              </div>
-            </div>
-          </div>
+          </motion.div>
+
+          {/* Right side - Illustration */}
+          <motion.div 
+            className="flex justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.9 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+          >
+            <Image
+              src={monitorImage}
+              alt="Analytics dashboard"
+              width={450}
+              height={450}
+              className="object-contain"
+              priority
+            />
+          </motion.div>
         </div>
       </div>
     </div>
   );
 };
 
-export default AnalyticsSection; 
+export default AnalyticsSection;
