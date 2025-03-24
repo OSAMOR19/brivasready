@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import usecaseImage from "@/components/images/pics/usecaseimage.svg";
+import usecaseImage from "@/components/images/pics/manwork.svg";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
