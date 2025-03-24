@@ -31,29 +31,25 @@ const BenefitsSection = () => {
 
   const benefits = [
     {
-      title: "Affordable Pricing ",
-      content: "Access enterprise-level services at startup-friendly prices. With BRIVAS, you get powerful tools without the heavy financial burden."
+      title: "Enhanced Customer Communication  ",
+      content: "Use Bulk SMS to deliver service updates, promotions, and important notifications directly to your customers, ensuring timely and effective communication."
     },
     {
-      title: "Rapid Scalability ",
+      title: "Secure Verification ",
       content: "As your startup grows, our platform scales with you, supporting increased user engagement, messaging, and verification needs."
     },
     {
-      title: "Easy Integration ",
+      title: "Network Efficiency",
       content: "Quickly integrate BRIVAS solutions into your existing platforms with our developer-friendly APIs and documentation."
     },
     {
-      title: "Pay-As-You-Grow",
+      title: "Global Scalability",
       content: "No need for large upfront commitments. Use only what you need, and scale your services as your customer base expands."
     },
     {
-      title: "Global Reach",
+      title: "Seamless Integration",
       content: "Engage users across borders with our international messaging and verification services, ensuring your startup is ready for the global stage"
     },
-    {
-      title: "Reliable Infrastructure",
-      content: "Built on a highly reliable infrastructure, BRIVAS ensures that your communications are always delivered on time, providing a seamless experience for your users."
-    }
   ];
 
   return (
@@ -116,12 +112,12 @@ const BenefitsSection = () => {
         >
           <div>
           <motion.h2 
-              className="text-5xl text-black font-semibold mb-2"
+              className="text-3xl text-black font-bold mb-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
               transition={{ duration: 0.7, delay: 0.4 }}
             >
-            Fuel Innovation and Growth with <br/> <span className='text-[#A4031F]'>BRIVAS</span>
+            <span className='text-[#40196D]'>BRIVAS for Telecommunications: Elevate Connectivity</span>
             </motion.h2>
 
             <motion.p 
@@ -130,14 +126,14 @@ const BenefitsSection = () => {
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
               transition={{ duration: 0.7, delay: 0.5 }}
             >
-              Whether you're building a mobile app, offering services, or need seamless messaging and verification, BRIVAS has the solutions to support your unique needs as you grow.
+              Telecommunication providers need robust, scalable, and efficient solutions to manage communication demands in a fast-paced, ever-connected world. BRIVAS delivers industry-leading messaging and verification services that help telcos streamline operations, enhance customer experiences, and ensure secure, reliable communication.
             </motion.p>
 
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <button className="bg-[#A4031F] text-white px-8 py-3 rounded-full font-medium hover:bg-[#40196D] transition-colors">
+              <button className="bg-[#40196D] text-white px-8 py-3 rounded-full font-medium hover:bg-[#40196D] transition-colors">
                 Start for free
               </button>
             </motion.div>

@@ -1,16 +1,16 @@
 'use client';
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
-const UseCasesSection = () => {
-  const [openCase, setOpenCase] = useState('Ride-Hailing and Mobility Startups');
+const EnterpriseBenefitsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
-      const element = document.getElementById('startup-use-cases');
+      const element = document.getElementById('benefits-section');
       
       if (element) {
         const elementPosition = element.getBoundingClientRect().top + scrollPosition;
@@ -27,95 +27,106 @@ const UseCasesSection = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const useCases = [
-    {
-      title: "Fintech Startups",
-      content: "Send transaction alerts, verification codes, and account updates to users securely. Implement two-factor authentication to protect sensitive financial information."
-    },
-    {
-      title: "E-commerce Startups",
-      content: "Keep customers informed with order confirmations, shipping updates, and delivery notifications. Send promotional messages and special offers to drive sales."
-    },
-    {
-      title: "SaaS Startups",
-      content: "Streamline user onboarding with verification messages, send feature updates, and provide account security notifications to enhance user experience."
-    },
-    {
-      title: "Ride-Hailing and Mobility Startups",
-      content: "Deliver real-time ride updates, driver information, and trip receipts to ensure seamless communication with users."
-    },
-    {
-      title: "Health and Wellness Startups",
-      content: "Send appointment reminders, medication alerts, and health tips to patients. Verify user identities for secure access to personal health information."
-    }
-  ];
-
   return (
-    <div id="startup-use-cases" className="py-16 px-4 bg-gray-50">
-      <div className="max-w-2xl mx-auto">
-        {/* Header */}
+    <div id="benefits-section" className="py-16 px-4 max-w-6xl mx-auto ">
+      {/* Header */}
+      <motion.div 
+        className="text-center mb-16"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+        transition={{ duration: 0.7 }}
+      >
+        <div className="inline-block bg-[#40196D] text-white font-medium px-6 py-3 rounded-full">
+          Use Cases
+        </div>
+      </motion.div>
+
+      {/* Benefits Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* First Row */}
         <motion.div 
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-          transition={{ duration: 0.7 }}
+          className="bg-[#40196D] text-white p-6 rounded-[16px]"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
         >
-          <motion.div 
-            className="inline-block bg-[#40196D] text-white py-2 px-6 rounded-full"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-          >
-            <h2 className="text-lg font-medium">Use cases</h2>
-          </motion.div>
+          <h3 className="text-xl font-bold mb-4">Prepaid and Postpaid Services</h3>
+          <p className="text-sm">
+          Send reminders for bill payments, data top-ups, and plan renewals via SMS to ensure uninterrupted services
+          </p>
         </motion.div>
 
-        {/* Use Cases Accordion */}
-        <div className="space-y-4">
-          {useCases.map((useCase, index) => (
-            <motion.div 
-              key={useCase.title}
-              className="border border-gray-200 rounded-2xl overflow-hidden bg-white"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-              transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
-              whileHover={{ 
-                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-                y: -5
-              }}
-            >
-              <motion.button
-                onClick={() => setOpenCase(openCase === useCase.title ? '' : useCase.title)}
-                className="w-full p-5 flex justify-between items-center text-left"
-                whileTap={{ scale: 0.98 }}
+        <motion.div 
+          className="bg-[#40196D] p-6 rounded-[16px]"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+        >
+          <h3 className="text-xl font-bold mb-4 text-white">Insurance Providers</h3>
+          <p className="text-sm text-white">
+          Send policy updates, premium reminders, and claim status notifications to keep clients informed and engaged.   
+          </p>
+        </motion.div>
+
+        <motion.div 
+          className="bg-[#40196D] p-6 rounded-[16px]"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+        >
+          <h3 className="text-xl font-bold mb-4 text-white">Investment Firms</h3>
+          <p className="text-sm text-white">
+          Share market updates, portfolio performance summaries, and trade confirmations with clients in real-time. 
+          </p>
+        </motion.div>
+
+        {/* Second Row */}
+        <motion.div 
+          className="bg-[#40196D] text-white p-6 rounded-[16px]"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+        >
+          <h3 className="text-xl text-white] font-bold mb-4">Credit Unions</h3>
+          <p className="text-sm text-white">
+          Facilitate member communications with payment reminders, loan updates, and service announcements.
+          </p>
+        </motion.div>
+
+        <motion.div 
+          className="bg-[#40196D] text-[#40196D] p-6 rounded-[16px]"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+          transition={{ duration: 0.7, delay: 0.5 }}
+          whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+        >
+          <h3 className="text-xl text-white font-bold mb-4"> Fintech Companies </h3>
+          <p className="text-sm text-white">
+          Enhance app user experiences with instant notifications, secure logins, and personalized offers.
+          </p>
+        </motion.div>
+
+        <motion.div 
+          className="bg-[#40196D] text-center text-white pt-12 rounded-[16px]"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+          transition={{ duration: 0.7, delay: 0.6 }}
+          whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+        >
+          <Link 
+                href="/signup" 
+                className="inline-block px-8 py-3 bg-[#ffffff] text-[#40196D] rounded-full hover:bg-[#ffffff] transition-colors font-medium"
               >
-                <span className="font-medium text-gray-800 text-lg">{useCase.title}</span>
-                <motion.span 
-                  className="text-gray-400 text-2xl"
-                  animate={{ rotate: openCase === useCase.title ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {openCase === useCase.title ? "—" : "+"}
-                </motion.span>
-              </motion.button>
-              <AnimatePresence>
-                {openCase === useCase.title && (
-                  <motion.div 
-                    className="px-5 pb-5"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <p className="text-gray-600">{useCase.content}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </div>
+                Start for free
+              </Link>
+        </motion.div>
       </div>
     </div>
   );
 };
 
-export default UseCasesSection; 
+export default EnterpriseBenefitsSection; 

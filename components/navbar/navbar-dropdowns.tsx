@@ -26,7 +26,7 @@ import smsimg from "@/components/Images/logos/smsmologo.svg"
 import smsotp from "@/components/Images/logos/smsotplogo.svg"
 import smbs from "@/components/Images/logos/smbslogo.svg"
 import flashcall from "@/components/Images/logos/flashcalllogo.svg"
-import smsmo from "@/components/Images/logos/smsmologo.svg"
+import smsmo from "@/components/Images/logos/bulksmslogo.svg"
 import startup from "@/components/Images/logos/startuplogo.svg"
 import Enterprise from "@/components/Images/logos/enterpriselogo.svg"
 import nonprofit from "@/components/Images/logos/nonprofitlogo.svg"
@@ -199,10 +199,10 @@ export function NavbarDropdowns() {
                         <Link href="/products/sms" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
                           <div className="flex items-center">
                             <div className="w-[34px] h-[34px] flex items-center justify-center mr-3">
-                              <Image src={smsimg} alt="SMS" width={40} height={40} />
+                              <Image src={smsmo} alt="SMS" width={40} height={40} />
                             </div>
                             <div>
-                              <div className="font-medium text-gray-900">SMS</div>
+                              <div className="font-medium text-gray-900">Bulk SMS</div>
                               <div className="text-sm text-gray-500">
                                 Reliable text messaging for businesses
                               </div>
@@ -495,7 +495,7 @@ export function NavbarDropdowns() {
                             </div>
                           </Link>
 
-                          <Link href="/solutions/industries" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
+                          <Link href="/solutions/retail" className="block p-3 hover:bg-gray-50 rounded-xl transition-colors">
                             <div className="flex items-center">
                             <div className="w-[40px] h-[40px] flex items-center justify-center mr-3">
                                 <Image src={retail} alt="SMS" width={40} height={40} />
