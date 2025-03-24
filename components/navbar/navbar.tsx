@@ -55,13 +55,13 @@ export function NavBar() {
           {/* Auth buttons (hidden on mobile) */}
           <div className="hidden lg:flex items-center space-x-4">
             <Link 
-              href="/login" 
+              href="/stage.brivas.io" 
               className="py-2 px-4 text-[#40196D] hover:underline"
             >
               Log in
             </Link>
             <Link 
-              href="/signup" 
+              href="/stage.brivas.io" 
               className="py-2 px-4 bg-[#40196D] text-white rounded-lg hover:bg-[#40196D]/90"
             >
               Sign up

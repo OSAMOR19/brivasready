@@ -238,7 +238,7 @@ export function NavbarDropdowns() {
                           </div>
                         </Link> */}
 
-                        <Link href="/signup" className="mt-4 block">
+                        <Link href="stage.brivas.io/login" className="mt-4 block">
                           <button className="w-full bg-[#40196D] text-white border border-gray-300 px-6 py-2.5 rounded-full font-medium hover:bg-gray-50 transition-all">
                             Start for free
                           </button>
@@ -273,7 +273,7 @@ export function NavbarDropdowns() {
                           </div>
                         </Link>
 
-                        <Link href="/signup" className="mt-4 block">
+                        <Link href="stage.brivas.io" className="mt-4 block">
                           <button className="w-full bg-[#40196D] text-white border border-gray-300 px-6 py-2.5 rounded-full font-medium hover:bg-gray-50 transition-all">
                             Start for free
                           </button>

@@ -101,10 +101,10 @@ export function DesktopMenu() {
       </div>
       
       {/* Other nav items */}
-      <Link href="/partners" className="text-gray-900 hover:text-[#40196D]">Partners</Link>
-      <Link href="/resources" className="text-gray-900 hover:text-[#40196D]">Resources</Link>
-      <Link href="/pricing" className="text-gray-900 hover:text-[#40196D]">Pricing</Link>
-      <Link href="/contact" className="text-gray-900 hover:text-[#40196D]">Contact</Link>
+      <Link href="#" className="text-gray-900 hover:text-[#40196D]">Partners</Link>
+      <Link href="#" className="text-gray-900 hover:text-[#40196D]">Resources</Link>
+      <Link href="#" className="text-gray-900 hover:text-[#40196D]">Pricing</Link>
+      <Link href="#" className="text-gray-900 hover:text-[#40196D]">Contact</Link>
     </div>
   )
 }
